@@ -1,4 +1,4 @@
-#+TITLE: Bower, Grunt, Yeoman
+#+TITLE: Yeoman, Grunt, Bower
 #+AUTHOR: Jason Walsh
 #+KEYWORDS: javascript, tools, build, chrome, google
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
@@ -14,35 +14,59 @@
   story 
 - Ensure integration into existing stacks is notes 
 
-* Bower, Grunt, Yeoman                                                :slide:
-
-Creating a Chrome Application with AngularJS
+* Chrome Application + AngularJS with Yeoman, Grunt, Bower            :slide:
 
 [[file:toolset.png][file:~/sandbox/presentations/toolset.png]]
 
 Jason Walsh, BlueKai 
 
+* Roadmap                                                             :slide:
+
+- Why do the tools exist 
+- What do they do 
+- How can you use 
+- When would you want to use 
+
+* What                                                                :slide:
+
+Simplify workflow for JavaScript applications. Best example are the notes in: 
+
+http://a.blip.tv/api.swf#g_MngvbfHwI
+
+Paul Irish - JavaScript Tooling http://2012.jsconf.us/
+
+
 * Equivalence                                                         :slide:
 
-** Yeoman 
+- Butlers maintains your house.  
+- Warthogs provide manual work. 
+- Birds maintain your nest. 
 
-#+BEGIN_EXAMPLE
-npm search yeoman-generator
-#+END_EXAMPLE
+** Yeoman                                                             :slide:
 
 - rails 
 - lein 
 
-** Grunt 
+#+BEGIN_SRC sh
+mkdir my-chrome-app && cd my-chrome-app
+yo chromeapp:app my-chrome-app
+#+END_SRC
 
-runs tests and packages 
+** Grunt                                                              :slide:
 
 - make 
 - rake 
 - ant 
 
-** Bower 
+#+BEGIN_SRC sh
+grunt
+#+END_SRC
 
+** Bower                                                              :slide:
+
+#+BEGIN_SRC sh
+bower install angular --save-dev
+#+END_SRC
 pulls down dependencies 
 http://bower.io/
 
@@ -58,10 +82,13 @@ We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
 
 
-#+begin_src sh
-yo chromeapp:app my-chrome-app
-#+end_src
+* Updating                                                            :slide:
 
+Updating versions of components is trivial. Regression testing 
+
+#+BEGIN_SRC sh
+npm update -g generator-chromeapp
+#+END_SRC
 
 * Installation                                                        :slide:
 
@@ -84,8 +111,8 @@ This is broadly the history of all JavaScript Tooling:
 
 
 - 2011: Static analysis 
-  - JSLint 
-  - February 2011: JSHint http://badassjs.com/post/3364925033/jshint-an-community-driven-fork-of-jslint
+- JSLint 
+- February 2011: JSHint http://badassjs.com/post/3364925033/jshint-an-community-driven-fork-of-jslint
 - March 2012 Grunt releases with init and basic task support (Ben
   Alman) http://benalman.com/news/2012/03/introducing-grunt/
 - April 2012 Grunt and Yeoman as a tools tracks at JSConf (both Irish and Alman ) http://2012.jsconf.us/ 
@@ -95,29 +122,6 @@ This is broadly the history of all JavaScript Tooling:
 - November 2012 first public Bower release at 0.5 from Twitter 
 - February 2013: Grunt 0.4 adds local checkout  
 
-
-
-* Project Lifecycle                                                   :slide:
-
-Best example are the notes in: 
-
-http://a.blip.tv/api.swf#g_MngvbfHwI
-
-Paul Irish - JavaScript Tooling http://2012.jsconf.us/
-
- 
-
-* New Projects                                                        :slide:
-
-Creating new projects is trivial...
-
-* Updating                                                            :slide:
-
-Updating versions of components is trivial. Regression testing 
-
-#+BEGIN_SRC shell
-npm update -g generator-chromeapp
-#+END_SRC
 
 * Grunt plugins
 
@@ -139,8 +143,6 @@ The story for adding in new features
  locally for project
 
 bower register <my-package-name> <git-endpoint>
-
-* Summary 
 
 * Resources                                                           :slide:
 
