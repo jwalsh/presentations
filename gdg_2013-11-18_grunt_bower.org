@@ -1,0 +1,170 @@
+#+TITLE: Bower, Grunt, Yeoman
+#+AUTHOR: Jason Walsh
+#+KEYWORDS: javascript, tools, build, chrome, google
+#+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
+
+#+BEGIN_HTML
+<p>Type <strong>T</strong> to begin the slide show.</p>
+#+END_HTML
+
+* Meta 
+
+- Local install only where we want help with CRX packaging 
+- Cover the standard case of a new application and also the update
+  story 
+- Ensure integration into existing stacks is notes 
+
+* Bower, Grunt, Yeoman                                                :slide:
+
+Creating a Chrome Application with AngularJS
+
+[[file:toolset.png][file:~/sandbox/presentations/toolset.png]]
+
+Jason Walsh, BlueKai 
+
+* Equivalence                                                         :slide:
+
+** Yeoman 
+
+#+BEGIN_EXAMPLE
+npm search yeoman-generator
+#+END_EXAMPLE
+
+- rails 
+- lein 
+
+** Grunt 
+
+runs tests and packages 
+
+- make 
+- rake 
+- ant 
+
+** Bower 
+
+pulls down dependencies 
+http://bower.io/
+
+- ivy 
+- maven 
+- pip 
+
+* Example                                                             :slide:
+
+** Yeoman
+
+We're going to go through the setup of a Chrome Application for
+pulling down a gallery locally from Flickr. 
+
+
+#+begin_src sh
+yo chromeapp:app my-chrome-app
+#+end_src
+
+
+* Installation                                                        :slide:
+
+Starting with a clean installation.  
+
+* JavaScript Tools                                                    :slide:
+
+- consistency of style 
+- compile on watch 
+- static builds 
+- shell script 
+- css preprocessors
+
+These all feed into the lifestyle of projects in JavaScript. 
+
+* History                                                             :slide:
+
+This is broadly the history of all JavaScript Tooling: 
+
+
+
+- 2011: Static analysis 
+  - JSLint 
+  - February 2011: JSHint http://badassjs.com/post/3364925033/jshint-an-community-driven-fork-of-jslint
+- March 2012 Grunt releases with init and basic task support (Ben
+  Alman) http://benalman.com/news/2012/03/introducing-grunt/
+- April 2012 Grunt and Yeoman as a tools tracks at JSConf (both Irish and Alman ) http://2012.jsconf.us/ 
+- June 2012 Grunt on a session for http://events.jquery.org/2012/sf/
+- June 2012 Yeoman releases at Google I/O
+  groups and http://www.youtube.com/watch?v=Mk-tFn2Ix6g
+- November 2012 first public Bower release at 0.5 from Twitter 
+- February 2013: Grunt 0.4 adds local checkout  
+
+
+
+* Project Lifecycle                                                   :slide:
+
+Best example are the notes in: 
+
+http://a.blip.tv/api.swf#g_MngvbfHwI
+
+Paul Irish - JavaScript Tooling http://2012.jsconf.us/
+
+ 
+
+* New Projects                                                        :slide:
+
+Creating new projects is trivial...
+
+* Updating                                                            :slide:
+
+Updating versions of components is trivial. Regression testing 
+
+#+BEGIN_SRC shell
+npm update -g generator-chromeapp
+#+END_SRC
+
+* Grunt plugins
+
+
+- external tools (sass and coffeescript)
+- code coverage 
+- unit testing 
+- compatibility testing 
+
+Use 
+/research/javascript-instrumentation.txt:
+
+* Updating 
+
+The story for adding in new features 
+
+* Package Privacy 
+
+ locally for project
+
+bower register <my-package-name> <git-endpoint>
+
+* Summary 
+
+* Resources                                                           :slide:
+
+Contact: jwalsh@bluekai.com 
+
+
+#+OPTIONS: num:nil tags:t
+
+#+TAGS: slide(s)
+
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="common.css" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="screen.css" media="screen" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="projection.css" media="projection" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="presenter.css" media="presenter" />
+
+#+BEGIN_HTML
+<script type="text/javascript" src="org-html-slideshow.js"></script>
+#+END_HTML
+
+# Local Variables:
+# org-html-head-include-default-style: nil
+# org-html-head-include-scripts: nil
+# End:
+* Contact                                                             :slide:
+
+- Twitter: @jwalsh_
+- Email: jwalsh@bluekai.com
