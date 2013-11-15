@@ -141,9 +141,15 @@ The story for adding in new features
 
 bower register <my-package-name> <git-endpoint>
 
-* Resources                                                           :slide:
+* Resources
 
-Contact: jwalsh@bluekai.com 
+
+  
+
+* Contact                                                             :slide:
+
+- Twitter: @jwalsh_
+- Email: jwalsh@bluekai.com
 
 
 #+OPTIONS: num:nil tags:t
@@ -163,7 +169,3 @@ Contact: jwalsh@bluekai.com
 # org-html-head-include-default-style: nil
 # org-html-head-include-scripts: nil
 # End:
-* Contact                                                             :slide:
-
-- Twitter: @jwalsh_
-- Email: jwalsh@bluekai.com
