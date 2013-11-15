@@ -1,6 +1,6 @@
 #+TITLE: Yeoman, Grunt, Bower
 #+AUTHOR: Jason Walsh
-#+KEYWORDS: javascript, tools, build, chrome, google
+#+KEYWORDS: javascript, tools, build, chrome, google, gdg
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
 
 #+BEGIN_HTML
@@ -35,7 +35,6 @@ http://a.blip.tv/api.swf#g_MngvbfHwI
 
 Paul Irish - JavaScript Tooling http://2012.jsconf.us/
 
-
 * Equivalence                                                         :slide:
 
 - Butlers maintains your house.  
@@ -45,7 +44,7 @@ Paul Irish - JavaScript Tooling http://2012.jsconf.us/
 ** Yeoman                                                             :slide:
 
 - rails 
-- lein 
+- lein new {template}
 
 #+BEGIN_SRC sh
 mkdir my-chrome-app && cd my-chrome-app
@@ -80,7 +79,6 @@ http://bower.io/
 
 We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
-
 
 * Updating                                                            :slide:
 
@@ -121,7 +119,6 @@ This is broadly the history of all JavaScript Tooling:
   groups and http://www.youtube.com/watch?v=Mk-tFn2Ix6g
 - November 2012 first public Bower release at 0.5 from Twitter 
 - February 2013: Grunt 0.4 adds local checkout  
-
 
 * Grunt plugins
 

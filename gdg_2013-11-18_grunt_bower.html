@@ -4,13 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Yeoman, Grunt, Bower</title>
-<!-- 2013-11-14 Thu 12:19 -->
+<!-- 2013-11-14 Thu 21:15 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jason Walsh" />
 <meta  name="description" content="Build Chrome Applications with Bower, Grunt, and Yeoman."
  />
-<meta  name="keywords" content="javascript, tools, build, chrome, google" />
+<meta  name="keywords" content="javascript, tools, build, chrome, google, gdg" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center; }
@@ -150,30 +150,28 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1">Meta</a></li>
 <li><a href="#sec-2">Chrome Application + AngularJS with Yeoman, Grunt, Bower&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
 <li><a href="#sec-3">Roadmap&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-4">Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a>
+<li><a href="#sec-4">What&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-5">Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a>
 <ul>
-<li><a href="#sec-4-1">Yeoman&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-4-2">Grunt&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-4-3">Bower&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-5-1">Yeoman&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-5-2">Grunt&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-5-3">Bower&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
 </ul>
 </li>
-<li><a href="#sec-5">Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a>
+<li><a href="#sec-6">Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a>
 <ul>
-<li><a href="#sec-5-1">Yeoman</a></li>
+<li><a href="#sec-6-1">Yeoman</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">Installation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-7">JavaScript Tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-8">History&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-9">Project Lifecycle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-10">New Projects&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-11">Updating&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-12">Not X?</a></li>
-<li><a href="#sec-13">Grunt plugins</a></li>
-<li><a href="#sec-14">Updating</a></li>
-<li><a href="#sec-15">Package Privacy</a></li>
-<li><a href="#sec-16">Resources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
-<li><a href="#sec-17">Contact&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-7">Updating&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-8">Installation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-9">JavaScript Tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-10">History&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-11">Grunt plugins</a></li>
+<li><a href="#sec-12">Updating</a></li>
+<li><a href="#sec-13">Package Privacy</a></li>
+<li><a href="#sec-14">Resources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
+<li><a href="#sec-15">Contact&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -223,8 +221,24 @@ Jason Walsh, BlueKai
 </div>
 </div>
 <div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<h2 id="sec-4">What&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
 <div class="outline-text-2" id="text-4">
+<p>
+Simplify workflow for JavaScript applications. Best example are the notes in: 
+</p>
+
+<p>
+<a href="http://a.blip.tv/api.swf#g_MngvbfHwI">http://a.blip.tv/api.swf#g_MngvbfHwI</a>
+</p>
+
+<p>
+Paul Irish - JavaScript Tooling <a href="http://2012.jsconf.us/">http://2012.jsconf.us/</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Equivalence&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Butlers maintains your house.  
 </li>
@@ -235,31 +249,27 @@ Jason Walsh, BlueKai
 </ul>
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1">Yeoman&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-4-1">
-<div class="org-src-container">
-
-<pre class="src src-sh">npm search yeoman-generator
-</pre>
-</div>
-
-
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">Yeoman&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>rails 
 </li>
 <li>lein 
 </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2">Grunt&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-runs tests and packages 
-</p>
 
+<div class="org-src-container">
+
+<pre class="src src-sh">mkdir my-chrome-app &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">cd</span> my-chrome-app
+yo chromeapp:app my-chrome-app
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">Grunt&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>make 
 </li>
@@ -268,11 +278,22 @@ runs tests and packages
 <li>ant 
 </li>
 </ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">grunt
+</pre>
 </div>
 </div>
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3">Bower&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
-<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3">Bower&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h3>
+<div class="outline-text-3" id="text-5-3">
+<div class="org-src-container">
+
+<pre class="src src-sh">bower install angular --save-dev
+</pre>
+</div>
 <p>
 pulls down dependencies 
 <a href="http://bower.io/">http://bower.io/</a>
@@ -289,36 +310,44 @@ pulls down dependencies
 </div>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-5">
-</div><div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1">Yeoman</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Example&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">Yeoman</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
 We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
 </p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Updating&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Updating versions of components is trivial. Regression testing 
+</p>
 
 <div class="org-src-container">
 
-<pre class="src src-sh">yo chromeapp:app my-chrome-app
+<pre class="src src-sh">npm update -g generator-chromeapp
 </pre>
 </div>
 </div>
 </div>
-</div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">Installation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">Installation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-8">
 <p>
 Starting with a clean installation.  
 </p>
 </div>
 </div>
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7">JavaScript Tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">JavaScript Tools&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>consistency of style 
 </li>
@@ -337,9 +366,9 @@ These all feed into the lifestyle of projects in JavaScript.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8">History&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">History&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-10">
 <p>
 This is broadly the history of all JavaScript Tooling: 
 </p>
@@ -370,53 +399,9 @@ groups and <a href="http://www.youtube.com/watch?v=Mk-tFn2Ix6g">http://www.youtu
 </ul>
 </div>
 </div>
-
-<div id="outline-container-sec-9" class="outline-2">
-<h2 id="sec-9">Project Lifecycle&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-9">
-<p>
-Best example are the notes in: 
-</p>
-
-<p>
-<a href="http://a.blip.tv/api.swf#g_MngvbfHwI">http://a.blip.tv/api.swf#g_MngvbfHwI</a>
-</p>
-
-<p>
-Paul Irish - JavaScript Tooling <a href="http://2012.jsconf.us/">http://2012.jsconf.us/</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-10" class="outline-2">
-<h2 id="sec-10">New Projects&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Creating new projects is trivial&#x2026;
-</p>
-</div>
-</div>
 <div id="outline-container-sec-11" class="outline-2">
-<h2 id="sec-11">Updating&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<h2 id="sec-11">Grunt plugins</h2>
 <div class="outline-text-2" id="text-11">
-<p>
-Updating versions of components is trivial. Regression testing 
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-sh">npm update -g generator-chromeapp
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-12" class="outline-2">
-<h2 id="sec-12">Not X?</h2>
-</div>
-
-<div id="outline-container-sec-13" class="outline-2">
-<h2 id="sec-13">Grunt plugins</h2>
-<div class="outline-text-2" id="text-13">
 <ul class="org-ul">
 <li>external tools (sass and coffeescript)
 </li>
@@ -434,17 +419,17 @@ Use
 </p>
 </div>
 </div>
-<div id="outline-container-sec-14" class="outline-2">
-<h2 id="sec-14">Updating</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">Updating</h2>
+<div class="outline-text-2" id="text-12">
 <p>
 The story for adding in new features 
 </p>
 </div>
 </div>
-<div id="outline-container-sec-15" class="outline-2">
-<h2 id="sec-15">Package Privacy</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13">Package Privacy</h2>
+<div class="outline-text-2" id="text-13">
 <p>
 locally for project
 </p>
@@ -454,9 +439,9 @@ bower register &lt;my-package-name&gt; &lt;git-endpoint&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-sec-16" class="outline-2">
-<h2 id="sec-16">Resources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14">Resources&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-14">
 <p>
 Contact: jwalsh@bluekai.com 
 </p>
@@ -466,9 +451,9 @@ Contact: jwalsh@bluekai.com
 </div>
 </div>
 
-<div id="outline-container-sec-17" class="outline-2">
-<h2 id="sec-17">Contact&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15">Contact&#xa0;&#xa0;&#xa0;<span class="tag"><span class="slide">slide</span></span></h2>
+<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Twitter: @jwalsh_
 </li>
@@ -480,7 +465,7 @@ Contact: jwalsh@bluekai.com
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jason Walsh</p>
-<p class="date">Created: 2013-11-14 Thu 12:19</p>
+<p class="date">Created: 2013-11-14 Thu 21:15</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
