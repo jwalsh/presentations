@@ -1,0 +1,42 @@
+* Setup 
+
+- customize-group org-export
+- Add deck.js from GitHub and checkout stable
+
+In the document on any slide: 
+
+- C-c C-x p HTML_CONTAINER_CLASS RET slide
+
+* Options 
+
+** org-html-presentation (new javascript)
+
+Tailor the JavaScript and CSS to the output. 
+
+** reveal.js (modify html exporter)
+
+Requires boilerplate for the base selectors.  Some rewrite necessary
+with the following: 
+
+#+BEGIN_SRC org
+  ,#+HTML_CONTAINER: section
+  ,#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+  ,#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+  ,#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+  
+  ,#+BEGIN_HTML
+  
+    </div><!-- .slides -->
+  </div><!-- .reveal -->
+  
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+  
+  <script>
+  Reveal.initialize({});
+  </script>
+  ,#+END_HTML
+#+END_SRC
+
+** deck.js (new presentation exporter)
+   
