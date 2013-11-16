@@ -1,7 +1,7 @@
 * Setup 
 
 - customize-group org-export
-- Add deck.js from GitHub and checkout stable
+- Run git submodule init & git git submodule update
 
 In the document on any slide: 
 
