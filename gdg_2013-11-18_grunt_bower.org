@@ -4,15 +4,10 @@
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
 
 #+BEGIN_HTML
-<p>Type <strong>T</strong> to begin the slide show.</p>
+<div class="reveal">
+    <div class="slides">
+    <p>Type <strong>T</strong> to begin the slide show.</p>
 #+END_HTML
-
-* Meta 
-
-- Local install only where we want help with CRX packaging 
-- Cover the standard case of a new application and also the update
-  story 
-- Ensure integration into existing stacks is notes 
 
 * Chrome Application + AngularJS with Yeoman, Grunt, Bower            :slide:
 
@@ -73,7 +68,7 @@ http://bower.io/
 - maven 
 - pip 
 
-* Example                                                             :slide:
+* AngularJS Example                                                   :slide:
 
 ** Yeoman
 
@@ -87,6 +82,14 @@ Updating versions of components is trivial. Regression testing
 #+BEGIN_SRC sh
 npm update -g generator-chromeapp
 #+END_SRC
+
+* Chrome App Example 
+
+- Local install only where we want help with CRX packaging 
+- Cover the standard case of a new application and also the update
+  story 
+- Ensure integration into existing stacks is notes 
+
 
 * Installation                                                        :slide:
 
@@ -145,7 +148,6 @@ bower register <my-package-name> <git-endpoint>
 
 
   
-
 * Contact                                                             :slide:
 
 - Twitter: @jwalsh_
@@ -156,13 +158,24 @@ bower register <my-package-name> <git-endpoint>
 
 #+TAGS: slide(s)
 
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="common.css" />
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="screen.css" media="screen" />
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="projection.css" media="projection" />
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="presenter.css" media="presenter" />
+#+HTML_CONTAINER: section
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
 #+BEGIN_HTML
-<script type="text/javascript" src="org-html-slideshow.js"></script>
+
+  </div><!-- slides -->
+</div><!-- reveal -->
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.min.js"></script>
+
+<script>
+Reveal.initialize({});
+</script>
+
+
 #+END_HTML
 
 # Local Variables:
