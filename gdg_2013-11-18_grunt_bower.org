@@ -3,26 +3,33 @@
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
 
-#+BEGIN_HTML
-<div class="reveal">
-    <div class="slides">
-    <p>Type <strong>T</strong> to begin the slide show.</p>
-#+END_HTML
 
-* Chrome Application + AngularJS with Yeoman, Grunt, Bower            :slide:
+* Chrome Application + AngularJS with Yeoman, Grunt, Bower
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
-[[file:toolset.png][file:~/sandbox/presentations/toolset.png]]
+** Google Developer Group, November 18, 2013
 
-Jason Walsh, BlueKai 
+[[file:toolset.png][file:toolset.png]]
 
-* Roadmap                                                             :slide:
+file:bluekai.png 
+j@wal.sh
+
+* Roadmap
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 - Why do the tools exist 
 - What do they do 
 - How can you use 
 - When would you want to use 
 
-* What                                                                :slide:
+* What
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 Simplify workflow for JavaScript applications. Best example are the notes in: 
 
@@ -30,13 +37,18 @@ http://a.blip.tv/api.swf#g_MngvbfHwI
 
 Paul Irish - JavaScript Tooling http://2012.jsconf.us/
 
-* Equivalence                                                         :slide:
+Setting up new applications is byzantine for new users. 
+
+* Equivalence
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 - Butlers maintains your house.  
 - Warthogs provide manual work. 
 - Birds maintain your nest. 
 
-** Yeoman                                                             :slide:
+** Yeoman
 
 - rails 
 - lein new {template}
@@ -46,7 +58,7 @@ mkdir my-chrome-app && cd my-chrome-app
 yo chromeapp:app my-chrome-app
 #+END_SRC
 
-** Grunt                                                              :slide:
+** Grunt
 
 - make 
 - rake 
@@ -56,7 +68,7 @@ yo chromeapp:app my-chrome-app
 grunt
 #+END_SRC
 
-** Bower                                                              :slide:
+** Bower
 
 #+BEGIN_SRC sh
 bower install angular --save-dev
@@ -68,14 +80,20 @@ http://bower.io/
 - maven 
 - pip 
 
-* AngularJS Example                                                   :slide:
+* AngularJS Example
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 ** Yeoman
 
 We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
 
-* Updating                                                            :slide:
+* Updating
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 Updating versions of components is trivial. Regression testing 
 
@@ -84,18 +102,27 @@ npm update -g generator-chromeapp
 #+END_SRC
 
 * Chrome App Example 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 - Local install only where we want help with CRX packaging 
 - Cover the standard case of a new application and also the update
   story 
 - Ensure integration into existing stacks is notes 
 
-
-* Installation                                                        :slide:
+* Installation
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 Starting with a clean installation.  
 
-* JavaScript Tools                                                    :slide:
+* JavaScript Tools
+  :PROPERTIES:
+  :slide:    slide
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 - consistency of style 
 - compile on watch 
@@ -105,7 +132,10 @@ Starting with a clean installation.
 
 These all feed into the lifestyle of projects in JavaScript. 
 
-* History                                                             :slide:
+* History
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 This is broadly the history of all JavaScript Tooling: 
 
@@ -124,6 +154,9 @@ This is broadly the history of all JavaScript Tooling:
 - February 2013: Grunt 0.4 adds local checkout  
 
 * Grunt plugins
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 
 - external tools (sass and coffeescript)
@@ -135,6 +168,9 @@ Use
 /research/javascript-instrumentation.txt:
 
 * Updating 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 The story for adding in new features 
 
@@ -144,39 +180,25 @@ The story for adding in new features
 
 bower register <my-package-name> <git-endpoint>
 
-* Resources
+* Friction 
 
+Version control  and submodule access 
 
-  
-* Contact                                                             :slide:
+Public access for components when using client visible changes of the
+minified files. 
+* Conclusion
+
+- Useful in single page applications 
+
+- Still very young 
+
+* Questions?
 
 - Twitter: @jwalsh_
 - Email: jwalsh@bluekai.com
 
 
 #+OPTIONS: num:nil tags:t
-
-#+TAGS: slide(s)
-
-#+HTML_CONTAINER: section
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
-
-#+BEGIN_HTML
-
-  </div><!-- slides -->
-</div><!-- reveal -->
-
-<script src="reveal.js/lib/js/head.min.js"></script>
-<script src="reveal.js/js/reveal.min.js"></script>
-
-<script>
-Reveal.initialize({});
-</script>
-
-
-#+END_HTML
 
 # Local Variables:
 # org-html-head-include-default-style: nil

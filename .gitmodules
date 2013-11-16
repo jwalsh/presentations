@@ -4,3 +4,6 @@
 [submodule "deck.js"]
 	path = deck.js
 	url = git@github.com:imakewebthings/deck.js.git
+[submodule "org-html-slideshow"]
+	path = org-html-slideshow
+	url = git@github.com:jwalsh/org-html-slideshow.git
