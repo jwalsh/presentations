@@ -1,30 +1,27 @@
-#+TITLE: Yeoman, Grunt, Bower
+#+TITLE: Chrome Application using AngularJS with Yeoman, Grunt, Bower
 #+AUTHOR: Jason Walsh
+#+EMAIL: j@wal.sh
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
 
-
-* Chrome Application + AngularJS with Yeoman, Grunt, Bower
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
 ** Google Developer Group, November 18, 2013
-
-[[file:toolset.png][file:toolset.png]]
-
-file:bluekai.png 
-j@wal.sh
 
 * Roadmap
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
+file:gdg_2013-11-18_grunt_bower/toolset.png
+
 - Why do the tools exist 
 - What do they do 
 - How can you use 
 - When would you want to use 
+
+* Why 
+
+
+file:gdg_2013-11-18_grunt_bower/hipster_dog.jpg
 
 * What
   :PROPERTIES:
@@ -39,16 +36,33 @@ Paul Irish - JavaScript Tooling http://2012.jsconf.us/
 
 Setting up new applications is byzantine for new users. 
 
+* New?
+
+file:gdg_2013-11-18_grunt_bower/same.jpg
+
+
 * Equivalence
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-- Butlers maintains your house.  
-- Warthogs provide manual work. 
-- Birds maintain your nest. 
+**  Butlers maintains your house.  
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+**  Warthogs provide manual work. 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+**  Birds maintain your nest. 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
-** Yeoman
+* Yeoman
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
 - rails 
 - lein new {template}
@@ -58,7 +72,12 @@ mkdir my-chrome-app && cd my-chrome-app
 yo chromeapp:app my-chrome-app
 #+END_SRC
 
-** Grunt
+file:gdg_2013-11-18_grunt_bower/mwada-filesystem.png
+
+* Grunt
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
 - make 
 - rake 
@@ -68,7 +87,10 @@ yo chromeapp:app my-chrome-app
 grunt
 #+END_SRC
 
-** Bower
+* Bower
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
 #+BEGIN_SRC sh
 bower install angular --save-dev
@@ -90,17 +112,6 @@ http://bower.io/
 We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
 
-* Updating
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-Updating versions of components is trivial. Regression testing 
-
-#+BEGIN_SRC sh
-npm update -g generator-chromeapp
-#+END_SRC
-
 * Chrome App Example 
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
@@ -110,13 +121,6 @@ npm update -g generator-chromeapp
 - Cover the standard case of a new application and also the update
   story 
 - Ensure integration into existing stacks is notes 
-
-* Installation
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-Starting with a clean installation.  
 
 * JavaScript Tools
   :PROPERTIES:
@@ -131,6 +135,29 @@ Starting with a clean installation.
 - css preprocessors
 
 These all feed into the lifestyle of projects in JavaScript. 
+
+* Updating
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+
+Updating versions of components is trivial. Regression testing 
+
+#+BEGIN_SRC sh
+npm update -g generator-chromeapp
+#+END_SRC
+
+* Searching
+
+- npm searching 
+- Grunt.js search on github 
+
+* Installation
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+
+Starting with a clean installation.  
 
 * History
   :PROPERTIES:
@@ -197,6 +224,7 @@ minified files.
 - Twitter: @jwalsh_
 - Email: jwalsh@bluekai.com
 
+file:bluekai.png
 
 #+OPTIONS: num:nil tags:t
 

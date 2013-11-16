@@ -5,7 +5,7 @@
 <!--[if IE 8]> <html class='no-js ie8' lang='en' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
 <!--[if gt IE 8]><!--> <html  lang='en' xmlns='http://www.w3.org/1999/xhtml'> <!--<![endif]-->
 <head>
-<title>Yeoman, Grunt, Bower</title>
+<title>Chrome Application using AngularJS with Yeoman, Grunt, Bower</title>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 <meta name='generator' content='Org-mode'/>
 <meta name='author' content='Jason Walsh'/>
@@ -65,74 +65,64 @@
 <div id='content' class='deck-container'>
 
 <div id='title-slide' class='slide'>
-<h1>Yeoman, Grunt, Bower</h1>
+<h1>Chrome Application using AngularJS with Yeoman, Grunt, Bower</h1>
 <h2>Jason Walsh</h2>
-<h2><a href="mailto:jwalsh@Jasons-MacBook-Pro-2.local">jwalsh@Jasons-MacBook-Pro-2.local</a></h2>
+<h2><a href="mailto:j@wal.sh">j@wal.sh</a></h2>
 <h2></h2>
 </div>
 <div id='table-of-contents' class='slide'>
 <h2>Table of Contents</h2>
 
 <ul>
-<li><a href='#outline-container-sec-1'>Chrome Application + AngularJS with Yeoman, Grunt, Bower</a>
-<ul>
 <li>Google Developer Group, November 18, 2013</li>
 </ul>
 </li>
-<li><a href='#outline-container-sec-2'>Roadmap</a></li>
+<li><a href='#outline-container-sec-1'>Roadmap</a></li>
+<li><a href='#outline-container-sec-2'>Why</a></li>
 <li><a href='#outline-container-sec-3'>What</a></li>
-<li><a href='#outline-container-sec-4'>Equivalence</a>
+<li><a href='#outline-container-sec-4'>New?</a></li>
+<li><a href='#outline-container-sec-5'>Equivalence</a>
 <ul>
-<li>Yeoman</li>
-<li>Grunt</li>
-<li>Bower</li>
+<li><a href='#outline-container-sec-5-1'>Butlers maintains your house.</a></li>
+<li><a href='#outline-container-sec-5-2'>Warthogs provide manual work.</a></li>
+<li><a href='#outline-container-sec-5-3'>Birds maintain your nest.</a></li>
 </ul>
 </li>
-<li><a href='#outline-container-sec-5'>AngularJS Example</a>
+<li><a href='#outline-container-sec-6'>Yeoman</a></li>
+<li><a href='#outline-container-sec-7'>Grunt</a></li>
+<li><a href='#outline-container-sec-8'>Bower</a></li>
+<li><a href='#outline-container-sec-9'>AngularJS Example</a>
 <ul>
 <li>Yeoman</li>
 </ul>
 </li>
-<li><a href='#outline-container-sec-6'>Updating</a></li>
-<li><a href='#outline-container-sec-7'>Chrome App Example</a></li>
-<li><a href='#outline-container-sec-8'>Installation</a></li>
-<li><a href='#outline-container-sec-9'>JavaScript Tools</a></li>
-<li><a href='#outline-container-sec-10'>History</a></li>
-<li><a href='#outline-container-sec-11'>Grunt plugins</a></li>
+<li><a href='#outline-container-sec-10'>Chrome App Example</a></li>
+<li><a href='#outline-container-sec-11'>JavaScript Tools</a></li>
 <li><a href='#outline-container-sec-12'>Updating</a></li>
-<li><a href='#outline-container-sec-13'>Package Privacy</a></li>
-<li><a href='#outline-container-sec-14'>Friction</a></li>
-<li><a href='#outline-container-sec-15'>Conclusion</a></li>
-<li><a href='#outline-container-sec-16'>Questions?</a></li>
-</ul>
+<li><a href='#outline-container-sec-13'>Searching</a></li>
+<li><a href='#outline-container-sec-14'>Installation</a></li>
+<li><a href='#outline-container-sec-15'>History</a></li>
+<li><a href='#outline-container-sec-16'>Grunt plugins</a></li>
+<li><a href='#outline-container-sec-17'>Updating</a></li>
+<li><a href='#outline-container-sec-18'>Package Privacy</a></li>
+<li><a href='#outline-container-sec-19'>Friction</a></li>
+<li><a href='#outline-container-sec-20'>Conclusion</a></li>
+<li><a href='#outline-container-sec-21'>Questions?</a></div>
+
+
+<div id="outline-container-sec-0-1" class="outline-3">
+<h3 id="sec-0-1">Google Developer Group, November 18, 2013</h3>
 </div>
-
-
 
 <div id="outline-container-sec-1" class="outline-2 slide">
-<h2 id="sec-1">Chrome Application + AngularJS with Yeoman, Grunt, Bower</h2>
+<h2 id="sec-1">Roadmap</h2>
 <div class="outline-text-2" id="text-1">
-</div>
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">Google Developer Group, November 18, 2013</h3>
-<div class="outline-text-3" id="text-1-1">
 
 <div class="figure">
-<p><a href="toolset.png"><img src="toolset.png" alt="toolset.png" /></a>
+<p><img src="gdg_2013-11-18_grunt_bower/toolset.png" alt="toolset.png" />
 </p>
 </div>
-
-<p>
-<img src="bluekai.png" alt="bluekai.png" /> 
-j@wal.sh
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2 slide">
-<h2 id="sec-2">Roadmap</h2>
-<div class="outline-text-2" id="text-2">
 
 <ul class="org-ul">
 <li>Why do the tools exist 
@@ -144,6 +134,16 @@ j@wal.sh
 <li>When would you want to use 
 </li>
 </ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2  slide">
+<h2 id="sec-2">Why</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_grunt_bower/hipster_dog.jpg" alt="hipster_dog.jpg" />
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-sec-3" class="outline-2 slide">
@@ -167,23 +167,44 @@ Setting up new applications is byzantine for new users.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2 slide">
-<h2 id="sec-4">Equivalence</h2>
+<div id="outline-container-sec-4" class="outline-2  slide">
+<h2 id="sec-4">New?</h2>
 <div class="outline-text-2" id="text-4">
 
-<ul class="org-ul">
-<li>Butlers maintains your house.  
-</li>
-<li>Warthogs provide manual work. 
-</li>
-<li>Birds maintain your nest. 
-</li>
-</ul>
+<div class="figure">
+<p><img src="gdg_2013-11-18_grunt_bower/same.jpg" alt="same.jpg" />
+</p>
+</div>
+</div>
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1">Yeoman</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-sec-5" class="outline-2 slide">
+<h2 id="sec-5">Equivalence</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+
+<div id="outline-container-sec-5-1" class="outline-3 slide">
+<h3 id="sec-5-1">Butlers maintains your house.</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3 slide">
+<h3 id="sec-5-2">Warthogs provide manual work.</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+</div>
+
+<div id="outline-container-sec-5-3" class="outline-3 slide">
+<h3 id="sec-5-3">Birds maintain your nest.</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2 slide">
+<h2 id="sec-6">Yeoman</h2>
+<div class="outline-text-2" id="text-6">
+
 <ul class="org-ul">
 <li>rails 
 </li>
@@ -197,11 +218,18 @@ Setting up new applications is byzantine for new users.
 yo chromeapp:app my-chrome-app
 </pre>
 </div>
+
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_grunt_bower/mwada-filesystem.png" alt="mwada-filesystem.png" />
+</p>
 </div>
 </div>
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2">Grunt</h3>
-<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-sec-7" class="outline-2 slide">
+<h2 id="sec-7">Grunt</h2>
+<div class="outline-text-2" id="text-7">
+
 <ul class="org-ul">
 <li>make 
 </li>
@@ -218,9 +246,10 @@ yo chromeapp:app my-chrome-app
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4-3" class="outline-3">
-<h3 id="sec-4-3">Bower</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-sec-8" class="outline-2 slide">
+<h2 id="sec-8">Bower</h2>
+<div class="outline-text-2" id="text-8">
+
 <div class="org-src-container">
 
 <pre class="src src-sh">bower install angular --save-dev
@@ -241,15 +270,14 @@ pulls down dependencies
 </ul>
 </div>
 </div>
-</div>
-<div id="outline-container-sec-5" class="outline-2 slide">
-<h2 id="sec-5">AngularJS Example</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-9" class="outline-2 slide">
+<h2 id="sec-9">AngularJS Example</h2>
+<div class="outline-text-2" id="text-9">
 </div>
 
-<div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1">Yeoman</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1">Yeoman</h3>
+<div class="outline-text-3" id="text-9-1">
 <p>
 We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
@@ -257,24 +285,9 @@ pulling down a gallery locally from Flickr.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2 slide">
-<h2 id="sec-6">Updating</h2>
-<div class="outline-text-2" id="text-6">
-
-<p>
-Updating versions of components is trivial. Regression testing 
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-sh">npm update -g generator-chromeapp
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-7" class="outline-2 slide">
-<h2 id="sec-7">Chrome App Example</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-sec-10" class="outline-2 slide">
+<h2 id="sec-10">Chrome App Example</h2>
+<div class="outline-text-2" id="text-10">
 
 <ul class="org-ul">
 <li>Local install only where we want help with CRX packaging 
@@ -287,18 +300,9 @@ story
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-8" class="outline-2 slide">
-<h2 id="sec-8">Installation</h2>
-<div class="outline-text-2" id="text-8">
-
-<p>
-Starting with a clean installation.  
-</p>
-</div>
-</div>
-<div id="outline-container-sec-9" class="outline-2 slide">
-<h2 id="sec-9">JavaScript Tools</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-sec-11" class="outline-2 slide">
+<h2 id="sec-11">JavaScript Tools</h2>
+<div class="outline-text-2" id="text-11">
 
 <ul class="org-ul">
 <li>consistency of style 
@@ -318,9 +322,44 @@ These all feed into the lifestyle of projects in JavaScript.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-10" class="outline-2 slide">
-<h2 id="sec-10">History</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-sec-12" class="outline-2 slide">
+<h2 id="sec-12">Updating</h2>
+<div class="outline-text-2" id="text-12">
+
+<p>
+Updating versions of components is trivial. Regression testing 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">npm update -g generator-chromeapp
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-13" class="outline-2  slide">
+<h2 id="sec-13">Searching</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>npm searching 
+</li>
+<li>Grunt.js search on github 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-14" class="outline-2 slide">
+<h2 id="sec-14">Installation</h2>
+<div class="outline-text-2" id="text-14">
+
+<p>
+Starting with a clean installation.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-15" class="outline-2 slide">
+<h2 id="sec-15">History</h2>
+<div class="outline-text-2" id="text-15">
 
 <p>
 This is broadly the history of all JavaScript Tooling: 
@@ -352,9 +391,9 @@ groups and <a href="http://www.youtube.com/watch?v=Mk-tFn2Ix6g">http://www.youtu
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-11" class="outline-2 slide">
-<h2 id="sec-11">Grunt plugins</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-sec-16" class="outline-2 slide">
+<h2 id="sec-16">Grunt plugins</h2>
+<div class="outline-text-2" id="text-16">
 
 
 <ul class="org-ul">
@@ -374,18 +413,18 @@ Use
 </p>
 </div>
 </div>
-<div id="outline-container-sec-12" class="outline-2 slide">
-<h2 id="sec-12">Updating</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-sec-17" class="outline-2 slide">
+<h2 id="sec-17">Updating</h2>
+<div class="outline-text-2" id="text-17">
 
 <p>
 The story for adding in new features 
 </p>
 </div>
 </div>
-<div id="outline-container-sec-13" class="outline-2  slide">
-<h2 id="sec-13">Package Privacy</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-sec-18" class="outline-2  slide">
+<h2 id="sec-18">Package Privacy</h2>
+<div class="outline-text-2" id="text-18">
 <p>
 locally for project
 </p>
@@ -395,9 +434,9 @@ bower register &lt;my-package-name&gt; &lt;git-endpoint&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-sec-14" class="outline-2  slide">
-<h2 id="sec-14">Friction</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-sec-19" class="outline-2  slide">
+<h2 id="sec-19">Friction</h2>
+<div class="outline-text-2" id="text-19">
 <p>
 Version control  and submodule access 
 </p>
@@ -409,9 +448,9 @@ minified files.
 </div>
 </div>
 
-<div id="outline-container-sec-15" class="outline-2  slide">
-<h2 id="sec-15">Conclusion</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-sec-20" class="outline-2  slide">
+<h2 id="sec-20">Conclusion</h2>
+<div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>Useful in single page applications 
 </li>
@@ -421,15 +460,21 @@ minified files.
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-16" class="outline-2  slide">
-<h2 id="sec-16">Questions?</h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-sec-21" class="outline-2  slide">
+<h2 id="sec-21">Questions?</h2>
+<div class="outline-text-2" id="text-21">
 <ul class="org-ul">
 <li>Twitter: @jwalsh_
 </li>
 <li>Email: jwalsh@bluekai.com
 </li>
 </ul>
+
+
+<div class="figure">
+<p><img src="bluekai.png" alt="bluekai.png" />
+</p>
+</div>
 </div>
 </div>
 
@@ -453,7 +498,7 @@ minified files.
 	<input type="submit" value="Go">
 </form>
 <div id="postamble" class="deck-status">
-<h1>Jason Walsh - Yeoman, Grunt, Bower</h1>
+<h1>Jason Walsh - Chrome Application using AngularJS with Yeoman, Grunt, Bower</h1>
 </div>
 
 </div>
