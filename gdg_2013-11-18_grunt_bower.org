@@ -193,8 +193,14 @@ This is broadly the history of all JavaScript Tooling:
 - unit testing 
 - compatibility testing 
 
-Use 
-/research/javascript-instrumentation.txt:
+Use GitHub for sample plugins: 
+
+https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Repositories
+
+https://github.com/eBay/skin/blob/master/Gruntfile.js
+
+https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js
+
 
 * Updating 
   :PROPERTIES:
@@ -229,9 +235,7 @@ minified files.
 #+ATTR_HTML: align="right" style="opacity: .5;"
 file:bluekai.png
 
-#+OPTIONS: num:nil tags:t
+#+OPTIONS: num:nil 
 
 # Local Variables:
-# org-html-head-include-default-style: nil
-# org-html-head-include-scripts: nil
 # End:
