@@ -59,7 +59,7 @@ file:gdg_2013-11-18_grunt_bower/same.jpg
    :HTML_CONTAINER_CLASS: slide
    :END:
 
-* Yeoman
+* Yeoman creates your projects
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
@@ -68,13 +68,19 @@ file:gdg_2013-11-18_grunt_bower/same.jpg
 - lein new {template}
 
 #+BEGIN_SRC sh
-mkdir my-chrome-app && cd my-chrome-app
+mkdir my-chrome-app 
+cd my-chrome-app
 yo chromeapp:app my-chrome-app
 #+END_SRC
 
 file:gdg_2013-11-18_grunt_bower/mwada-filesystem.png
 
-* Grunt
+#+BEGIN_EXAMPLE
+Gruntfile.js app          bower.json   dist         node_modules package.json test
+#+END_EXAMPLE
+
+
+* Grunt builds your projects 
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
@@ -87,7 +93,7 @@ file:gdg_2013-11-18_grunt_bower/mwada-filesystem.png
 grunt
 #+END_SRC
 
-* Bower
+* Bower manages your dependency
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:

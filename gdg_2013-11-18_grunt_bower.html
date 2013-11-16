@@ -88,8 +88,8 @@
 <li><a href='#outline-container-sec-5-3'>Birds maintain your nest.</a></li>
 </ul>
 </li>
-<li><a href='#outline-container-sec-6'>Yeoman</a></li>
-<li><a href='#outline-container-sec-7'>Grunt</a></li>
+<li><a href='#outline-container-sec-6'>Yeoman creates your projects</a></li>
+<li><a href='#outline-container-sec-7'>Grunt builds your projects</a></li>
 <li><a href='#outline-container-sec-8'>Bower</a></li>
 <li><a href='#outline-container-sec-9'>AngularJS Example</a>
 <ul>
@@ -202,7 +202,7 @@ Setting up new applications is byzantine for new users.
 </div>
 </div>
 <div id="outline-container-sec-6" class="outline-2 slide">
-<h2 id="sec-6">Yeoman</h2>
+<h2 id="sec-6">Yeoman creates your projects</h2>
 <div class="outline-text-2" id="text-6">
 
 <ul class="org-ul">
@@ -214,7 +214,8 @@ Setting up new applications is byzantine for new users.
 
 <div class="org-src-container">
 
-<pre class="src src-sh">mkdir my-chrome-app &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">cd</span> my-chrome-app
+<pre class="src src-sh">mkdir my-chrome-app 
+<span style="color: #DCDCCC; font-weight: bold;">cd</span> my-chrome-app
 yo chromeapp:app my-chrome-app
 </pre>
 </div>
@@ -224,10 +225,15 @@ yo chromeapp:app my-chrome-app
 <p><img src="gdg_2013-11-18_grunt_bower/mwada-filesystem.png" alt="mwada-filesystem.png" />
 </p>
 </div>
+
+<pre class="example">
+Gruntfile.js app          bower.json   dist         node_modules package.json test
+</pre>
 </div>
 </div>
+
 <div id="outline-container-sec-7" class="outline-2 slide">
-<h2 id="sec-7">Grunt</h2>
+<h2 id="sec-7">Grunt builds your projects</h2>
 <div class="outline-text-2" id="text-7">
 
 <ul class="org-ul">
