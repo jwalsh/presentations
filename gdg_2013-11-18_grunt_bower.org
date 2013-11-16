@@ -2,9 +2,7 @@
 #+AUTHOR: Jason Walsh
 #+EMAIL: j@wal.sh
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
-#+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman.
-
-** Google Developer Group, November 18, 2013
+#+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman. Seattle Google Developer Group, November 18, 2013
 
 * Roadmap
   :PROPERTIES:
@@ -39,7 +37,6 @@ Setting up new applications is byzantine for new users.
 * New?
 
 file:gdg_2013-11-18_grunt_bower/same.jpg
-
 
 * Equivalence
   :PROPERTIES:
@@ -78,7 +75,6 @@ file:gdg_2013-11-18_grunt_bower/mwada-filesystem.png
 #+BEGIN_EXAMPLE
 Gruntfile.js app          bower.json   dist         node_modules package.json test
 #+END_EXAMPLE
-
 
 * Grunt builds your projects 
    :PROPERTIES:
@@ -230,6 +226,7 @@ minified files.
 - Twitter: @jwalsh_
 - Email: jwalsh@bluekai.com
 
+#+ATTR_HTML: align="right" style="opacity: .5;"
 file:bluekai.png
 
 #+OPTIONS: num:nil tags:t
