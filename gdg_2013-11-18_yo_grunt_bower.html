@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if lt IE 7]> <html class='no-js ie6' lang='en' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
+<!--[if IE 7]> <html class='no-js ie7' lang='en' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
+<!--[if IE 8]> <html class='no-js ie8' lang='en' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
+<!--[if gt IE 8]><!--> <html  lang='en' xmlns='http://www.w3.org/1999/xhtml'> <!--<![endif]-->
+<head>
+<title>Chrome Application using AngularJS with Yeoman, Grunt, Bower</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+<meta name='generator' content='Org-mode'/>
+<meta name='author' content='Jason Walsh'/>
+<meta name='description' content='Build Chrome Applications with Bower, Grunt, and Yeoman. Seattle Google Developer Group, November 18, 2013'/>
+<meta name='keywords' content='javascript, tools, build, chrome, google, gdg'/>
+
+<link rel='stylesheet' href='deck.js/core/deck.core.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/goto/deck.goto.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/hash/deck.hash.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/menu/deck.menu.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/navigation/deck.navigation.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/scale/deck.scale.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/status/deck.status.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/themes/style/swiss.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/themes/transition/fade.css' type='text/css' />
+<script src='deck.js/jquery-1.7.2.min.js' type='text/javascript'></script>
+<script src='deck.js/core/deck.core.js' type='text/javascript'></script>
+<script src='deck.js/modernizr.custom.js' type='text/javascript'></script>
+<script src='deck.js/extensions/goto/deck.goto.js' type='text/javascript'></script>
+<script src='deck.js/extensions/hash/deck.hash.js' type='text/javascript'></script>
+<script src='deck.js/extensions/menu/deck.menu.js' type='text/javascript'></script>
+<script src='deck.js/extensions/navigation/deck.navigation.js' type='text/javascript'></script>
+<script src='deck.js/extensions/scale/deck.scale.js' type='text/javascript'></script>
+<script src='deck.js/extensions/status/deck.status.js' type='text/javascript'></script>
+
+<script type='text/javascript'>
+  $(document).ready(function () { $.deck('.slide'); });
+</script>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+<style type='text/css'>
+#table-of-contents a {color: inherit;}
+#table-of-contents ul {margin-bottom: 0;}
+#table-of-contents li {padding: 0;}
+
+#preamble, #postamble {left: 5px; width: 100%;}
+#preamble {position: absolute; top: 10px;}
+#postamble {}
+
+#title-slide h1 {
+    position: static; padding: 0;
+    margin-top: 10%;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+#title-slide h2 {
+    text-align: center;
+    border:none;
+    padding: 0;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+<div id='content' class='deck-container'>
+
+<div id='title-slide' class='slide'>
+<h1>Chrome Application using AngularJS with Yeoman, Grunt, Bower</h1>
+<h2>Jason Walsh</h2>
+<h2><a href="mailto:jwalsh@bluekai.com">jwalsh@bluekai.com</a></h2>
+<h2></h2>
+</div>
+<div id='table-of-contents' class='slide'>
+<h2>Table of Contents</h2>
+
+<ul>
+<li><a href='#outline-container-sec-1'>Roadmap</a></li>
+<li><a href='#outline-container-sec-2'>Getting Started</a>
+<ul>
+<li>Yeoman</li>
+</ul>
+</li>
+<li><a href='#outline-container-sec-3'>Chrome App Example</a>
+<ul>
+<li>Generation</li>
+</ul>
+</li>
+<li><a href='#outline-container-sec-4'>Application Personal</a></li>
+<li><a href='#outline-container-sec-5'>AngularJS Example</a>
+<ul>
+<li>Yeoman</li>
+</ul>
+</li>
+<li><a href='#outline-container-sec-6'>Why</a></li>
+<li><a href='#outline-container-sec-7'>What</a></li>
+<li><a href='#outline-container-sec-8'>New?</a></li>
+<li><a href='#outline-container-sec-9'>Equivalence</a>
+<ul>
+<li><a href='#outline-container-sec-9-1'>Butlers maintains your house.</a></li>
+<li><a href='#outline-container-sec-9-2'>Warthogs provide manual work.</a></li>
+<li><a href='#outline-container-sec-9-3'>Birds maintain your nest.</a></li>
+</ul>
+</li>
+<li><a href='#outline-container-sec-10'>Yeoman creates your projects</a></li>
+<li><a href='#outline-container-sec-11'>Grunt builds your projects</a></li>
+<li><a href='#outline-container-sec-12'>Bower manages your dependency</a></li>
+<li><a href='#outline-container-sec-13'>JavaScript Tools</a></li>
+<li><a href='#outline-container-sec-14'>Updating</a></li>
+<li><a href='#outline-container-sec-15'>Searching</a>
+<ul>
+<li>Grunt</li>
+</ul>
+</li>
+<li><a href='#outline-container-sec-16'>Installation</a></li>
+<li><a href='#outline-container-sec-17'>History</a></li>
+<li><a href='#outline-container-sec-18'>Grunt plugins</a></li>
+<li><a href='#outline-container-sec-19'>Updating</a></li>
+<li><a href='#outline-container-sec-20'>Package Privacy</a></li>
+<li><a href='#outline-container-sec-21'>Friction</a></li>
+<li><a href='#outline-container-sec-22'>Conclusion</a></li>
+<li><a href='#outline-container-sec-23'>Questions?</a></li>
+</ul>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2 slide">
+<h2 id="sec-1">Roadmap</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_yo_grunt_bower/toolset.png" alt="toolset.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Create the scaffolding for an AngularJS / Chrome App
+</li>
+<li>Personal task management logger: <a href="https://chrome.google.com/webstore/category/app/87-task-management">https://chrome.google.com/webstore/category/app/87-task-management</a>
+</li>
+<li>Why do the tools exist 
+</li>
+<li>What do they do 
+</li>
+<li>When would you want to use 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2  slide">
+<h2 id="sec-2">Getting Started</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_yo_grunt_bower/yo.png" alt="yo.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Yeoman</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Find the following applications: <i>generator-chromeapp</i> and <i>generator-angular</i>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">yo
+</pre>
+</div>
+
+<p>
+Alternatively we could have done: 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">npm search yeoman-generator chrome
+npm search yeoman-generator angular
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2 slide">
+<h2 id="sec-3">Chrome App Example</h2>
+<div class="outline-text-2" id="text-3">
+
+<ul class="org-ul">
+<li>Local install only where we want help with CRX packaging 
+</li>
+<li>Cover the standard case of a new application and also the update
+story 
+</li>
+<li>Ensure integration into existing stacks is notes 
+</li>
+</ul>
+
+<p>
+<a href="http://developer.chrome.com/apps/about_apps.html">http://developer.chrome.com/apps/about_apps.html</a>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">npm install -g yo generator-generator
+mkdir ~/dev/generator-blog &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">cd</span> $<span style="color: #DFAF8F;">_</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Generation</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+├── app
+│   ├── index.js
+│   └── templates
+│       ├── _bower.json
+│       ├── _package.json
+│       ├── editorconfig
+│       ├── jshintrc
+│       └── travis.yml
+├── test
+│   ├── test-creation.js
+│   └── test-load.js
+├── .editorconfig
+├── .gitattributes
+├── .gitignore
+├── .jshintrc
+├── .travis.yml
+├── LICENSE
+├── package.json
+└── README.md
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2  slide">
+<h2 id="sec-4">Application Personal</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #DCDCCC; font-weight: bold;">cd</span> angular.js
+git checkout v1.2.1
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2 slide">
+<h2 id="sec-5">AngularJS Example</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">Yeoman</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+We're going to go through the setup of a Chrome Application for
+pulling down a gallery locally from Flickr. 
+</p>
+
+<p>
+We could either do this through locally sourcing the source
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">bower install angular
+</pre>
+</div>
+
+<p>
+or using two generators. 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2  slide">
+<h2 id="sec-6">Why</h2>
+<div class="outline-text-2" id="text-6">
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_yo_grunt_bower/hipster_dog.jpg" alt="hipster_dog.jpg" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2 slide">
+<h2 id="sec-7">What</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>
+Simplify workflow for JavaScript applications. Best example are the notes in: 
+</p>
+
+<p>
+<a href="http://a.blip.tv/api.swf#g_MngvbfHwI">http://a.blip.tv/api.swf#g_MngvbfHwI</a>
+</p>
+
+<p>
+Paul Irish - JavaScript Tooling <a href="http://2012.jsconf.us/">http://2012.jsconf.us/</a>
+</p>
+
+<p>
+Setting up new applications is byzantine for new users. 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2  slide">
+<h2 id="sec-8">New?</h2>
+<div class="outline-text-2" id="text-8">
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_yo_grunt_bower/same.jpg" alt="same.jpg" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2 slide">
+<h2 id="sec-9">Equivalence</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+
+<div id="outline-container-sec-9-1" class="outline-3 slide">
+<h3 id="sec-9-1">Butlers maintains your house.</h3>
+<div class="outline-text-3" id="text-9-1">
+</div>
+</div>
+
+<div id="outline-container-sec-9-2" class="outline-3 slide">
+<h3 id="sec-9-2">Warthogs provide manual work.</h3>
+<div class="outline-text-3" id="text-9-2">
+</div>
+</div>
+
+<div id="outline-container-sec-9-3" class="outline-3 slide">
+<h3 id="sec-9-3">Birds maintain your nest.</h3>
+<div class="outline-text-3" id="text-9-3">
+</div>
+</div>
+</div>
+<div id="outline-container-sec-10" class="outline-2 slide">
+<h2 id="sec-10">Yeoman creates your projects</h2>
+<div class="outline-text-2" id="text-10">
+
+<ul class="org-ul">
+<li>rails 
+</li>
+<li>lein new {template}
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">mkdir my-chrome-app 
+<span style="color: #DCDCCC; font-weight: bold;">cd</span> my-chrome-app
+yo chromeapp:app my-chrome-app
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="gdg_2013-11-18_yo_grunt_bower/mwada-filesystem.png" alt="mwada-filesystem.png" />
+</p>
+</div>
+
+<pre class="example">
+Gruntfile.js app          bower.json   dist         node_modules package.json test
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-11" class="outline-2 slide">
+<h2 id="sec-11">Grunt builds your projects</h2>
+<div class="outline-text-2" id="text-11">
+
+<ul class="org-ul">
+<li>make 
+</li>
+<li>rake 
+</li>
+<li>ant 
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">grunt
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-12" class="outline-2 slide">
+<h2 id="sec-12">Bower manages your dependency</h2>
+<div class="outline-text-2" id="text-12">
+
+<div class="org-src-container">
+
+<pre class="src src-sh">bower install angular --save-dev
+</pre>
+</div>
+<p>
+pulls down dependencies 
+<a href="http://bower.io/">http://bower.io/</a>
+</p>
+
+<ul class="org-ul">
+<li>ivy 
+</li>
+<li>maven 
+</li>
+<li>pip 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-13" class="outline-2 slide">
+<h2 id="sec-13">JavaScript Tools</h2>
+<div class="outline-text-2" id="text-13">
+
+<ul class="org-ul">
+<li>consistency of style 
+</li>
+<li>compile on watch 
+</li>
+<li>static builds 
+</li>
+<li>shell script 
+</li>
+<li>css preprocessors
+</li>
+</ul>
+
+<p>
+These all feed into the lifestyle of projects in JavaScript. 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-14" class="outline-2 slide">
+<h2 id="sec-14">Updating</h2>
+<div class="outline-text-2" id="text-14">
+
+<p>
+Updating versions of components is trivial. Regression testing 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">npm update -g generator-chromeapp
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-15" class="outline-2  slide">
+<h2 id="sec-15">Searching</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>npm searching 
+</li>
+<li>Grunt.js search on github 
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-15-1" class="outline-3">
+<h3 id="sec-15-1">Grunt</h3>
+<div class="outline-text-3" id="text-15-1">
+<ul class="org-ul">
+<li>Unit testing 
+</li>
+<li>Wrap
+</li>
+<li>Linting
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-16" class="outline-2 slide">
+<h2 id="sec-16">Installation</h2>
+<div class="outline-text-2" id="text-16">
+
+<p>
+Starting with a clean installation.  
+</p>
+</div>
+</div>
+<div id="outline-container-sec-17" class="outline-2 slide">
+<h2 id="sec-17">History</h2>
+<div class="outline-text-2" id="text-17">
+
+<p>
+This is broadly the history of all JavaScript Tooling: 
+</p>
+
+
+
+<ul class="org-ul">
+<li>2011: Static analysis 
+</li>
+<li>JSLint 
+</li>
+<li>February 2011: JSHint <a href="http://badassjs.com/post/3364925033/jshint-an-community-driven-fork-of-jslint">http://badassjs.com/post/3364925033/jshint-an-community-driven-fork-of-jslint</a>
+</li>
+<li>March 2012 Grunt releases with init and basic task support (Ben
+Alman) <a href="http://benalman.com/news/2012/03/introducing-grunt/">http://benalman.com/news/2012/03/introducing-grunt/</a>
+</li>
+<li>April 2012 Grunt and Yeoman as a tools tracks at JSConf (both Irish and Alman ) <a href="http://2012.jsconf.us/">http://2012.jsconf.us/</a> 
+</li>
+<li>June 2012 Grunt on a session for <a href="http://events.jquery.org/2012/sf/">http://events.jquery.org/2012/sf/</a>
+</li>
+<li>June 2012 Yeoman releases at Google I/O
+groups and <a href="http://www.youtube.com/watch?v=Mk-tFn2Ix6g">http://www.youtube.com/watch?v=Mk-tFn2Ix6g</a>
+</li>
+<li>November 2012 first public Bower release at 0.5 from Twitter 
+</li>
+<li>February 2013: Grunt 0.4 adds local checkout  
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-18" class="outline-2 slide">
+<h2 id="sec-18">Grunt plugins</h2>
+<div class="outline-text-2" id="text-18">
+
+
+<ul class="org-ul">
+<li>external tools (sass and coffeescript)
+</li>
+<li>code coverage 
+</li>
+<li>unit testing 
+</li>
+<li>compatibility testing 
+</li>
+</ul>
+
+<p>
+Use GitHub for sample plugins: 
+</p>
+
+<p>
+<a href="https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Repositories">https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Repositories</a>
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/angular/angular.js/blob/master/Gruntfile.js">https://github.com/angular/angular.js/blob/master/Gruntfile.js</a>
+</li>
+<li><a href="https://github.com/eBay/skin/blob/master/Gruntfile.js">https://github.com/eBay/skin/blob/master/Gruntfile.js</a>
+</li>
+<li><a href="https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js">https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-19" class="outline-2 slide">
+<h2 id="sec-19">Updating</h2>
+<div class="outline-text-2" id="text-19">
+
+<p>
+The story for adding in new features 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-20" class="outline-2  slide">
+<h2 id="sec-20">Package Privacy</h2>
+<div class="outline-text-2" id="text-20">
+<p>
+locally for project
+</p>
+
+<p>
+bower register &lt;my-package-name&gt; &lt;git-endpoint&gt;
+</p>
+</div>
+</div>
+<div id="outline-container-sec-21" class="outline-2  slide">
+<h2 id="sec-21">Friction</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+Version control  and submodule access 
+</p>
+
+<p>
+Public access for components when using client visible changes of the
+minified files. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-22" class="outline-2  slide">
+<h2 id="sec-22">Conclusion</h2>
+<div class="outline-text-2" id="text-22">
+<ul class="org-ul">
+<li>Useful in single page applications 
+</li>
+
+<li>Still very young 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-23" class="outline-2  slide">
+<h2 id="sec-23">Questions?</h2>
+<div class="outline-text-2" id="text-23">
+<ul class="org-ul">
+<li>Twitter: @jwalsh_
+</li>
+<li>Email: jwalsh@bluekai.com
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="bluekai.png" alt="bluekai.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<!-- Place the following snippet at the bottom of the deck container. -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+<!-- Place the following snippet at the bottom of the deck container. -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+<!-- Place the following snippet at the bottom of the deck container. -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+<!-- Place the following snippet at the bottom of the deck container. -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+<div id="postamble" class="deck-status">
+<h1>Jason Walsh - Chrome Application using AngularJS with Yeoman, Grunt, Bower</h1>
+</div>
+
+</div>
+</body>
+</html>

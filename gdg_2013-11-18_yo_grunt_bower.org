@@ -1,6 +1,6 @@
 #+TITLE: Chrome Application using AngularJS with Yeoman, Grunt, Bower
 #+AUTHOR: Jason Walsh
-#+EMAIL: j@wal.sh
+#+EMAIL: jwalsh@bluekai.com
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman. Seattle Google Developer Group, November 18, 2013
 
@@ -9,17 +9,95 @@
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-file:gdg_2013-11-18_grunt_bower/toolset.png
+file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
+- Create the scaffolding for an AngularJS / Chrome App
+- Personal task management logger: https://chrome.google.com/webstore/category/app/87-task-management
 - Why do the tools exist 
 - What do they do 
-- How can you use 
 - When would you want to use 
+
+* Getting Started  
+
+** Yeoman 
+
+Find the following applications: /generator-chromeapp/ and /generator-angular/
+
+#+BEGIN_SRC sh
+yo
+#+END_SRC
+
+* Chrome App Example 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+
+- Local install only where we want help with CRX packaging 
+- Cover the standard case of a new application and also the update
+  story 
+- Ensure integration into existing stacks is notes 
+
+http://developer.chrome.com/apps/about_apps.html
+
+#+BEGIN_SRC sh
+npm install -g yo generator-generator
+mkdir ~/dev/generator-blog && cd $_
+#+END_SRC
+
+** Generation
+
+#+BEGIN_EXAMPLE
+├── app
+│   ├── index.js
+│   └── templates
+│       ├── _bower.json
+│       ├── _package.json
+│       ├── editorconfig
+│       ├── jshintrc
+│       └── travis.yml
+├── test
+│   ├── test-creation.js
+│   └── test-load.js
+├── .editorconfig
+├── .gitattributes
+├── .gitignore
+├── .jshintrc
+├── .travis.yml
+├── LICENSE
+├── package.json
+└── README.md
+#+END_EXAMPLE
+
+* Application Personal 
+
+
+
+#+BEGIN_SRC sh
+cd angular.js
+git checkout v1.2.1
+#+END_SRC
+* AngularJS Example
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+
+** Yeoman
+
+We're going to go through the setup of a Chrome Application for
+pulling down a gallery locally from Flickr. 
+
+We could either do this through locally sourcing the source
+
+#+BEGIN_SRC sh
+bower install angular
+#+END_SRC
+
+or using two generators. 
 
 * Why 
 
 
-file:gdg_2013-11-18_grunt_bower/hipster_dog.jpg
+file:gdg_2013-11-18_yo_grunt_bower/hipster_dog.jpg
 
 * What
   :PROPERTIES:
@@ -36,7 +114,7 @@ Setting up new applications is byzantine for new users.
 
 * New?
 
-file:gdg_2013-11-18_grunt_bower/same.jpg
+file:gdg_2013-11-18_yo_grunt_bower/same.jpg
 
 * Equivalence
   :PROPERTIES:
@@ -70,7 +148,7 @@ cd my-chrome-app
 yo chromeapp:app my-chrome-app
 #+END_SRC
 
-file:gdg_2013-11-18_grunt_bower/mwada-filesystem.png
+file:gdg_2013-11-18_yo_grunt_bower/mwada-filesystem.png
 
 #+BEGIN_EXAMPLE
 Gruntfile.js app          bower.json   dist         node_modules package.json test
@@ -104,29 +182,8 @@ http://bower.io/
 - maven 
 - pip 
 
-* AngularJS Example
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-** Yeoman
-
-We're going to go through the setup of a Chrome Application for
-pulling down a gallery locally from Flickr. 
-
-* Chrome App Example 
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-- Local install only where we want help with CRX packaging 
-- Cover the standard case of a new application and also the update
-  story 
-- Ensure integration into existing stacks is notes 
-
 * JavaScript Tools
   :PROPERTIES:
-  :slide:    slide
   :HTML_CONTAINER_CLASS: slide
   :END:
 
@@ -151,8 +208,50 @@ npm update -g generator-chromeapp
 
 * Searching
 
+** Yeoman 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+file:gdg_2013-11-18_yo_grunt_bower/yo.png
+
+
 - npm searching 
+
+Alternatively we could have done: 
+
+#+BEGIN_SRC sh
+npm search yeoman-generator chrome
+npm search yeoman-generator angular
+#+END_SRC
+
+
+
+** Grunt 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+
 - Grunt.js search on github 
+
+
+- external tools (sass and coffeescript)
+- code coverage 
+- unit testing 
+- compatibility testing 
+
+Use GitHub for sample plugins: 
+
+https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Repositories
+
+- https://github.com/angular/angular.js/blob/master/Gruntfile.js
+- https://github.com/eBay/skin/blob/master/Gruntfile.js
+- https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js
+
+
+
+- Unit testing 
+- Wrap
+- Linting
 
 * Installation
   :PROPERTIES:
@@ -186,20 +285,6 @@ This is broadly the history of all JavaScript Tooling:
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
-
-
-- external tools (sass and coffeescript)
-- code coverage 
-- unit testing 
-- compatibility testing 
-
-Use GitHub for sample plugins: 
-
-https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Repositories
-
-https://github.com/eBay/skin/blob/master/Gruntfile.js
-
-https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js
 
 
 * Updating 
