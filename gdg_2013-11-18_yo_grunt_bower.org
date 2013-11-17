@@ -39,12 +39,20 @@ yo
 
 http://developer.chrome.com/apps/about_apps.html
 
+** Setup 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
 #+BEGIN_SRC sh
 npm install -g yo generator-generator
 mkdir ~/dev/generator-blog && cd $_
 #+END_SRC
 
 ** Generation
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
 #+BEGIN_EXAMPLE
 ├── app
@@ -111,28 +119,6 @@ http://a.blip.tv/api.swf#g_MngvbfHwI
 Paul Irish - JavaScript Tooling http://2012.jsconf.us/
 
 Setting up new applications is byzantine for new users. 
-
-* New?
-
-file:gdg_2013-11-18_yo_grunt_bower/same.jpg
-
-* Equivalence
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-**  Butlers maintains your house.  
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
-**  Warthogs provide manual work. 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
-**  Birds maintain your nest. 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
 
 * Yeoman creates your projects
    :PROPERTIES:
@@ -223,7 +209,6 @@ Alternatively we could have done:
 npm search yeoman-generator chrome
 npm search yeoman-generator angular
 #+END_SRC
-
 
 
 ** Grunt 
