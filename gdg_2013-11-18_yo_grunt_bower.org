@@ -17,11 +17,14 @@ file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 - What do they do 
 - When would you want to use 
 
-* Yeoman, Grunt, and Bower with Chrome Applications and AngularJS
+* Yeoman, Grunt, and Bower with Packaged Apps and AngularJS
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
 
 - http://developer.chrome.com/apps/about_apps.html
+- http://developer.chrome.com/apps/angular_framework.html
+- chrome://flags/ 
+- > Experimental Extension APIs
 - chrome://apps/
 
 * Setup 
@@ -38,12 +41,13 @@ yo
 npm -g install generator-{chromeapp,angular}
 #+END_SRC
 
-* Chrome App Project (Buzz) 
+* Chrome App Project (Drive) 
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-# sandbox/gdgChromeAppBuzz
+# sandbox/gdg_2013-11-18_yo_grunt_bower/todoChrm
+
 
 ** Setup 
    :PROPERTIES:
@@ -51,7 +55,7 @@ npm -g install generator-{chromeapp,angular}
    :END:
 
 #+BEGIN_SRC sh
-mkdir -p ~/sandbox/gdgChromeAppBuzz && cd $_
+mkdir -p driveChrome && cd $_
 yo chromeapp:app
 npm install
 #+END_SRC
@@ -99,12 +103,39 @@ Running "clean:server" (clean) task
 Running "concurrent:test" (concurrent) task
 #+END_EXAMPLE
 
+* Chrome App Feature
+
+http://developer.chrome.com/apps/angular_framework.html
+
 * Chrome App Dependencies
 
 ** Angular 
 
 #+BEGIN_SRC sh
 bower install angular
+#+END_SRC
+
+#+BEGIN_SRC json
+  "devDependencies": {
+    "angular": "~1.2"
+  }
+#+END_SRC
+
+** Remove Local 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+#+BEGIN_SRC html
+<script src="js/angular-1.1.0.min.js"></script>
+<script src="js/app.js"></script>
+
+#+END_SRC
+
+#+BEGIN_SRC html
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+
 #+END_SRC
 
 ** Generation
@@ -120,8 +151,6 @@ grunt server
 
 ** Install 
 
-- chrome://flags/ 
-- > Experimental Extension APIs
 
 ** Compress
 
@@ -185,7 +214,7 @@ Update the CSP for the application to allow access.
    :END:
 
 #+BEGIN_SRC sh
-mkdir -p ~/sandbox/gdgAngularBuzz && cd $_
+mkdir -p ~/sandbox/buzzAngular && cd $_
 yo angular:app
 npm install
 #+END_SRC
@@ -231,26 +260,57 @@ git checkout v1.2.1
 https://npmjs.org/package/grunt-chrome-manifest
 
 #+BEGIN_SRC sh
-npm install grunt-chrome-manifest
+npm install grunt-chrome-manifest --save-dev
+#+END_SRC
+
+#+BEGIN_SRC json
+chromeManifest: {
+  dist: {
+    options: {
+      buildnumber: 'both',
+      background: {
+        target: 'scripts/background.js',
+        exclude: [
+          'background/scripts/chromereload.js'
+        ]
+      }
+    },
+    src: 'app',
+    dest: 'dist'
+  }
+}
+#+END_SRC
+
+* Angular Application 
+
+#+BEGIN_SRC 
+{
+  "name": "Angular Package App Demo",
+  "description": "Demo",
+  "version": "1",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "icons": {
+    "16": "icon_16.png",
+    "128": "icon_128.png"
+  }
+}
 #+END_SRC
 
 * Angular Dependencies
 
 ** Update dependencies 
 
-By default we'll see 
+#+BEGIN_SRC js
+    "es5-shim": "~2.1.0",
+    "jquery": "~2.0.3",
+    "sass-bootstrap": "~3.0.0",
 
-#+BEGIN_SRC html
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
 #+END_SRC
 
-** Add jQuery 
-
-
-#+BEGIN_SRC sh
-bower install jquery
-#+END_SRC
 * Yeoman Creates Projects
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
@@ -293,7 +353,7 @@ grunt --help
    :HTML_CONTAINER_CLASS: slide
    :END:
 
-** http://bower.io/
+  http://bower.io/
 
 - ivy 
 - maven 
@@ -332,7 +392,6 @@ grunt watch
 * Yeoman Generators
 file:gdg_2013-11-18_yo_grunt_bower/yo.png
 
-
 ** Searching 
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
@@ -353,7 +412,6 @@ npm search yeoman-generator angular
 #+BEGIN_SRC sh
 npm update -g generator-chromeapp
 #+END_SRC
-
 
 * Grunt Plugins
   :PROPERTIES:
@@ -465,7 +523,6 @@ This is broadly the history of all JavaScript Tooling:
 - February 2013: Grunt 0.4 adds local checkout  
 
 * Yeoman Generators 
-
 
 
 
