@@ -4,20 +4,27 @@
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman. Seattle Google Developer Group, November 18, 2013
 
-* Roadmap
+* Overview
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
 file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
-- Create the scaffolding for an AngularJS / Chrome App
-- Personal task management logger: https://chrome.google.com/webstore/category/app/87-task-management
+- Integrate a productivity app for Chrome using Angular
 - Why do the tools exist 
 - What do they do 
 - When would you want to use 
 
-* Getting Started  
+* Getting Started on Buzz
+
+file:gdg_2013-11-18_yo_grunt_bower/dog.png
+
+- http://developer.chrome.com/apps/about_apps.html
+- chrome://apps/
+- Personal task management logger: https://chrome.google.com/webstore/category/app/87-task-management
+
+* Setup 
 
 ** Yeoman 
 
@@ -27,17 +34,14 @@ Find the following applications: /generator-chromeapp/ and /generator-angular/
 yo
 #+END_SRC
 
-* Chrome App Example 
+#+BEGIN_SRC sh
+npm -g install generator-{chromeapp,angular}
+#+END_SRC
+
+* Chrome App Project (Buzz)
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
-
-- Local install only where we want help with CRX packaging 
-- Cover the standard case of a new application and also the update
-  story 
-- Ensure integration into existing stacks is notes 
-
-http://developer.chrome.com/apps/about_apps.html
 
 ** Setup 
    :PROPERTIES:
@@ -45,8 +49,63 @@ http://developer.chrome.com/apps/about_apps.html
    :END:
 
 #+BEGIN_SRC sh
-npm install -g yo generator-generator
-mkdir ~/dev/generator-blog && cd $_
+mkdir -p ~/sandbox/gdgChromeAppBuzz && cd $_
+yo chromeapp:app
+npm install
+#+END_SRC
+
+** Layout
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+#+BEGIN_EXAMPLE
+|-- Gruntfile.js
+|-- app
+|   |-- _locales
+|   |-- bower_components
+|   |-- images
+|   |-- index.html
+|   |-- manifest.json
+|   |-- scripts
+|   `-- styles
+|-- bower.json
+`-- package.json
+#+END_EXAMPLE
+
+* Chrome App Build
+
+** Building 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+#+BEGIN_SRC sh
+grunt
+#+END_SRC
+
+** Output
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+#+BEGIN_EXAMPLE
+Running "jshint:all" (jshint) task
+>> 2 files lint free.
+
+Running "clean:server" (clean) task
+
+Running "concurrent:test" (concurrent) task
+#+END_EXAMPLE
+
+* Chrome App Dependencies
+
+** Add Angular components
+
+** Angular 
+
+#+BEGIN_SRC sh
+bower install angular
 #+END_SRC
 
 ** Generation
@@ -54,115 +113,148 @@ mkdir ~/dev/generator-blog && cd $_
    :HTML_CONTAINER_CLASS: slide
    :END:
 
-#+BEGIN_EXAMPLE
-├── app
-│   ├── index.js
-│   └── templates
-│       ├── _bower.json
-│       ├── _package.json
-│       ├── editorconfig
-│       ├── jshintrc
-│       └── travis.yml
-├── test
-│   ├── test-creation.js
-│   └── test-load.js
-├── .editorconfig
-├── .gitattributes
-├── .gitignore
-├── .jshintrc
-├── .travis.yml
-├── LICENSE
-├── package.json
-└── README.md
-#+END_EXAMPLE
-
-* Application Personal 
+#+BEGIN_SRC sh
+grunt server
+#+END_SRC
 
 
+* Chrome App Installation
+
+** Install 
+
+- chrome://flags/ 
+- > Experimental Extension APIs
+
+** Compress
+
+- https://github.com/gruntjs/grunt-contrib-compress
 
 #+BEGIN_SRC sh
-cd angular.js
-git checkout v1.2.1
+npm install grunt-contrib-compress --save-dev
 #+END_SRC
-* AngularJS Example
+
+#+BEGIN_SRC javascript
+grunt.loadNpmTasks('grunt-contrib-compress');
+#+END_SRC
+
+#+BEGIN_SRC javascript
+compress: {
+  main: {
+    expand: true,
+    cwd: 'app/',
+    src: ['**/*'],
+    dest: 'app.zip'
+  }
+}
+#+END_SRC
+
+* Angular Project (Buzz)
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
+
+** Example 
+
+- angular-seed/
+- angular.js/example
+- todomvc
 
 ** Yeoman
 
 We're going to go through the setup of a Chrome Application for
 pulling down a gallery locally from Flickr. 
 
-We could either do this through locally sourcing the source
-
-#+BEGIN_SRC sh
-bower install angular
-#+END_SRC
-
 or using two generators. 
 
-* Why 
+- https://npmjs.org/package/generator-angular
+
+* Angular Build
+
+** Source 
+
+We'll be using one of the example applications from the Angular
+examples.
+
+#+BEGIN_SRC sh
+cd angular.js
+git checkout v1.2.1
+#+END_SRC
+
+** Manifest
+
+https://npmjs.org/package/grunt-chrome-manifest
+
+#+BEGIN_SRC sh
+npm install grunt-chrome-manifest
+#+END_SRC
+
+* Angular Dependencies
+
+** Update dependencies 
+
+By default we'll see 
+
+#+BEGIN_SRC html
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+#+END_SRC
+
+** Add jQuery 
 
 
-file:gdg_2013-11-18_yo_grunt_bower/hipster_dog.jpg
-
-* What
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-Simplify workflow for JavaScript applications. Best example are the notes in: 
-
-http://a.blip.tv/api.swf#g_MngvbfHwI
-
-Paul Irish - JavaScript Tooling http://2012.jsconf.us/
-
-Setting up new applications is byzantine for new users. 
-
-* Yeoman creates your projects
+#+BEGIN_SRC sh
+bower install jquery
+#+END_SRC
+* Yeoman Creates Projects
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
 
+** http://yeoman.io/
+
+Other task-oriented build tools: 
+
 - rails 
-- lein new {template}
+- lein 
 
-#+BEGIN_SRC sh
-mkdir my-chrome-app 
-cd my-chrome-app
-yo chromeapp:app my-chrome-app
-#+END_SRC
-
+** Layout 
 file:gdg_2013-11-18_yo_grunt_bower/mwada-filesystem.png
 
 #+BEGIN_EXAMPLE
 Gruntfile.js app          bower.json   dist         node_modules package.json test
 #+END_EXAMPLE
 
-* Grunt builds your projects 
+* Grunt Builds Projects 
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
 
+** http://gruntjs.com/
+
 - make 
-- rake 
 - ant 
+- rake 
+- gradle 
+- lein
+
 
 #+BEGIN_SRC sh
 grunt
+grunt --help
 #+END_SRC
 
-* Bower manages your dependency
+* Bower Manages Dependencies
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
+
+** http://bower.io/
 
 #+BEGIN_SRC sh
 bower install angular --save-dev
 #+END_SRC
-pulls down dependencies 
-http://bower.io/
+
+
 
 - ivy 
 - maven 
@@ -173,20 +265,25 @@ http://bower.io/
   :HTML_CONTAINER_CLASS: slide
   :END:
 
+- project templates
 - consistency of style 
 - compile on watch 
 - static builds 
+- HTML rewriting 
 - shell script 
-- css preprocessors
+- CSS pre-processors
+- dependency checking 
 
 These all feed into the lifestyle of projects in JavaScript. 
 
+* Watching 
 * Updating
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
 Updating versions of components is trivial. Regression testing 
+
 
 #+BEGIN_SRC sh
 npm update -g generator-chromeapp
@@ -206,10 +303,9 @@ file:gdg_2013-11-18_yo_grunt_bower/yo.png
 Alternatively we could have done: 
 
 #+BEGIN_SRC sh
-npm search yeoman-generator chrome
+npm search yeoman-generator chromeapp
 npm search yeoman-generator angular
 #+END_SRC
-
 
 ** Grunt 
   :PROPERTIES:
@@ -271,6 +367,7 @@ This is broadly the history of all JavaScript Tooling:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
+- http://gruntjs.com/plugins/
 
 * Updating 
   :PROPERTIES:
@@ -287,25 +384,26 @@ bower register <my-package-name> <git-endpoint>
 
 * Friction 
 
-Version control  and submodule access 
+- Version control and submodule access 
+- Server-side integration
+- Beware of old tutorials
+- Local build tools need local NPM hosting
 
-Public access for components when using client visible changes of the
-minified files. 
 * Conclusion
 
 - Useful in single page applications 
-
+- Merging generators will likely not result in the correct outcome 
 - Still very young 
 
 * Questions?
 
+- Deck: http://wal.sh/p/gdg_2013-11-18_yo_grunt_bower.html
+- Generator: https://npmjs.org/package/generator-crangular
+
 - Twitter: @jwalsh_
 - Email: jwalsh@bluekai.com
 
-#+ATTR_HTML: align="right" style="opacity: .5;"
-file:bluekai.png
-
-#+OPTIONS: num:nil 
+#+OPTIONS: num:nil toc:nil
 
 # Local Variables:
 # End:
