@@ -1,4 +1,4 @@
-#+TITLE: Chrome Application using AngularJS with Yeoman, Grunt, Bower
+#+TITLE: Using Yeoman, Grunt, and Bower with Chrome Applications and AngularJS
 #+AUTHOR: Jason Walsh
 #+EMAIL: jwalsh@bluekai.com
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
