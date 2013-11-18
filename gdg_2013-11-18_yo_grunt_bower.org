@@ -11,19 +11,18 @@
 
 file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
-- Integrate a productivity app for Chrome using Angular
-- Do this twice 
+- Integrate a simple app for Chrome using Angular
+- Integrate a simple Angular application into a Chrome App
 - Why do the tools exist 
 - What do they do 
 - When would you want to use 
 
-* Getting Started on [TBD]
+* Getting Started 
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
 
 - http://developer.chrome.com/apps/about_apps.html
 - chrome://apps/
-- Personal task management logger: https://chrome.google.com/webstore/category/app/87-task-management
 
 * Setup 
 
