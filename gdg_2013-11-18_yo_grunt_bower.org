@@ -4,6 +4,14 @@
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
 #+DESCRIPTION: Build Chrome Applications with Bower, Grunt, and Yeoman. Seattle Google Developer Group, November 18, 2013
 
+# Branches 
+# s0 - Bare Chrome App
+# s1 - Scaffolding
+# s2
+# s3
+# s4 - Bower owns Angular 
+# s5 - Grunt task for compression 
+
 * Overview
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
@@ -11,20 +19,22 @@
 
 file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
+- Increased presence in the last year
 - Integrate a simple app for Chrome using Angular
 - Integrate a simple Angular application into a Chrome App
+- Show core workflow when maintaining applications 
 - Why do the tools exist 
 - What do they do 
 - When would you want to use 
+- Q&A
 
 * Yeoman, Grunt, and Bower with Packaged Apps and AngularJS
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
 
-- http://developer.chrome.com/apps/about_apps.html
-- http://developer.chrome.com/apps/angular_framework.html
-- chrome://flags/ 
-- > Experimental Extension APIs
+- Chrome packaged application that uses the Google Drive API  http://developer.chrome.com/apps/angular_framework.html
+- Angular application from boilerplate that creates manifest.json 
+- chrome://flags/  > Experimental Extension APIs
 - chrome://apps/
 
 * Setup 
@@ -41,13 +51,12 @@ yo
 npm -g install generator-{chromeapp,angular}
 #+END_SRC
 
-* Chrome App Project (Drive) 
+* Chrome App Project (Drive Chrome) (s1)
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
 # sandbox/gdg_2013-11-18_yo_grunt_bower/todoChrm
-
 
 ** Setup 
    :PROPERTIES:
@@ -103,16 +112,37 @@ Running "clean:server" (clean) task
 Running "concurrent:test" (concurrent) task
 #+END_EXAMPLE
 
-* Chrome App Feature
+* Chrome App Verify 
 
+- View the application 
+- Tools > Extensions 
+- Load Unpacked Extension 
+
+file:gdg_2013-11-18_yo_grunt_bower/driveChrome.png
+
+* Chrome App Feature (gDrive) (s3)
+  
 http://developer.chrome.com/apps/angular_framework.html
 
-* Chrome App Dependencies
+# rm -f app ; cp -R ../chrome-app-samples/gdrive app
+
+- Update the app functionality 
+- driveChrome is a sample application that uses Angular 
+- Rebuild as a watcher 
+- We're going to remove the hosted dependency on Angular
+
+* Chrome App Dependencies (s4)
 
 ** Angular 
 
 #+BEGIN_SRC sh
-bower install angular
+bower install angular\#1.0.8 --save-dev
+#+END_SRC
+
+#+BEGIN_SRC json
+  "devDependencies": {
+    "angular": "1.0.8"
+  }
 #+END_SRC
 
 #+BEGIN_SRC json
@@ -147,12 +177,7 @@ bower install angular
 grunt server
 #+END_SRC
 
-* Chrome App Installation
-
-** Install 
-
-
-** Compress
+* Chrome App Compression (s5)
 
 - https://github.com/gruntjs/grunt-contrib-compress
 
@@ -165,20 +190,16 @@ grunt.loadNpmTasks('grunt-contrib-compress');
 #+END_SRC
 
 #+BEGIN_SRC javascript
-compress: {
-  main: {
-    expand: true,
-    cwd: 'app/',
-    src: ['**/*'],
-    dest: 'app.zip'
-  }
-}
-#+END_SRC
-
-* Chrome App Integration 
-
-#+BEGIN_SRC sh
-cp -r ../../angular-seed/app/{index.html,partials,js,css,lib} .
+    compress: {
+      main: {
+        options: {
+          archive: 'archive.zip'
+        },
+        files: [
+          {src: ['app/**']}
+        ]
+      }
+    },
 #+END_SRC
 
 ** Linting 
@@ -195,11 +216,6 @@ fixjsstyle Gruntfile.js app
 #+END_EXAMPLE
 
 ** CSP 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
-   
-Update the CSP for the application to allow access. 
 
 * Angular Project (Buzz) 
   :PROPERTIES:
@@ -245,14 +261,9 @@ npm install
 
 * Angular Build
 
-** Source 
-
-We'll be using one of the example applications from the Angular
-examples.
 
 #+BEGIN_SRC sh
-cd angular.js
-git checkout v1.2.1
+grunt watch
 #+END_SRC
 
 ** Manifest
@@ -380,14 +391,6 @@ bower --help
 - dependency checking 
 
 These all feed into the lifestyle of projects in JavaScript. 
-
-* Watching 
-
-Watching changes following save:
-
-#+BEGIN_SRC sh
-grunt watch
-#+END_SRC
 
 * Yeoman Generators
 file:gdg_2013-11-18_yo_grunt_bower/yo.png
@@ -521,23 +524,6 @@ This is broadly the history of all JavaScript Tooling:
   groups and http://www.youtube.com/watch?v=Mk-tFn2Ix6g
 - November 2012 first public Bower release at 0.5 from Twitter 
 - February 2013: Grunt 0.4 adds local checkout  
-
-* Yeoman Generators 
-
-
-
-* Updating 
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-The story for adding in new features 
-
-* Package Privacy 
-
- locally for project
-
-bower register <my-package-name> <git-endpoint>
 
 * Friction 
 
