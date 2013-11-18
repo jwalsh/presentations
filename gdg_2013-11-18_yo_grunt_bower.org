@@ -12,11 +12,12 @@
 file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
 - Integrate a productivity app for Chrome using Angular
+- Do this twice 
 - Why do the tools exist 
 - What do they do 
 - When would you want to use 
 
-* Getting Started on Buzz
+* Getting Started on [TBD]
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
 
@@ -38,10 +39,12 @@ yo
 npm -g install generator-{chromeapp,angular}
 #+END_SRC
 
-* Chrome App Project (Buzz)
+* Chrome App Project (Buzz) 
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
+
+# sandbox/gdgChromeAppBuzz
 
 ** Setup 
    :PROPERTIES:
@@ -83,7 +86,6 @@ npm install
 #+BEGIN_SRC sh
 grunt
 #+END_SRC
-
 ** Output
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
@@ -100,8 +102,6 @@ Running "concurrent:test" (concurrent) task
 
 * Chrome App Dependencies
 
-** Add Angular components
-
 ** Angular 
 
 #+BEGIN_SRC sh
@@ -116,7 +116,6 @@ bower install angular
 #+BEGIN_SRC sh
 grunt server
 #+END_SRC
-
 
 * Chrome App Installation
 
@@ -148,25 +147,73 @@ compress: {
 }
 #+END_SRC
 
-* Angular Project (Buzz)
+* Chrome App Integration 
+
+#+BEGIN_SRC sh
+cp -r ../../angular-seed/app/{index.html,partials,js,css,lib} .
+#+END_SRC
+
+** Linting 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+#+BEGIN_SRC sh
+fixjsstyle Gruntfile.js app
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+    "indent": 2,
+#+END_EXAMPLE
+
+** CSP 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+   
+Update the CSP for the application to allow access. 
+
+* Angular Project (Buzz) 
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-** Example 
+# gdg_2013-11-18_yo_grunt_bower/tmpAng
 
-- angular-seed/
-- angular.js/example
-- todomvc
+** Setup 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
-** Yeoman
+#+BEGIN_SRC sh
+mkdir -p ~/sandbox/gdgAngularBuzz && cd $_
+yo angular:app
+npm install
+#+END_SRC
 
-We're going to go through the setup of a Chrome Application for
-pulling down a gallery locally from Flickr. 
+** Layout
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
 
-or using two generators. 
-
-- https://npmjs.org/package/generator-angular
+#+BEGIN_EXAMPLE
+|-- Gruntfile.js
+|-- app
+|   |-- 404.html
+|   |-- favicon.ico
+|   |-- index.html
+|   |-- robots.txt
+|   |-- scripts
+|   |-- styles
+|   `-- views
+|-- bower.json
+|-- karma-e2e.conf.js
+|-- karma.conf.js
+|-- package.json
+`-- test
+    |-- runner.html
+    `-- spec
+#+END_EXAMPLE
 
 * Angular Build
 
@@ -210,26 +257,25 @@ bower install jquery
    :HTML_CONTAINER_CLASS: slide
    :END:
 
-** http://yeoman.io/
+  http://yeoman.io/
 
 Other task-oriented build tools: 
 
 - rails 
 - lein 
 
-** Layout 
-file:gdg_2013-11-18_yo_grunt_bower/mwada-filesystem.png
+file:gdg_2013-11-18_yo_grunt_bower/eg-yo.png
 
-#+BEGIN_EXAMPLE
-Gruntfile.js app          bower.json   dist         node_modules package.json test
-#+END_EXAMPLE
+#+BEGIN_SRC sh
+yo --help
+#+END_SRC
 
 * Grunt Builds Projects 
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
 
-** http://gruntjs.com/
+  http://gruntjs.com/
 
 - make 
 - ant 
@@ -237,9 +283,9 @@ Gruntfile.js app          bower.json   dist         node_modules package.json te
 - gradle 
 - lein
 
+file:gdg_2013-11-18_yo_grunt_bower/eg-grunt.png
 
 #+BEGIN_SRC sh
-grunt
 grunt --help
 #+END_SRC
 
@@ -250,15 +296,15 @@ grunt --help
 
 ** http://bower.io/
 
-#+BEGIN_SRC sh
-bower install angular --save-dev
-#+END_SRC
-
-
-
 - ivy 
 - maven 
 - pip 
+
+file:gdg_2013-11-18_yo_grunt_bower/eg-bower.png
+
+#+BEGIN_SRC sh
+bower --help
+#+END_SRC
 
 * JavaScript Tools
   :PROPERTIES:
@@ -277,37 +323,40 @@ bower install angular --save-dev
 These all feed into the lifestyle of projects in JavaScript. 
 
 * Watching 
-* Updating
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
 
-Updating versions of components is trivial. Regression testing 
-
+Watching changes following save:
 
 #+BEGIN_SRC sh
-npm update -g generator-chromeapp
+grunt watch
 #+END_SRC
 
-* Searching
-
-** Yeoman 
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
+* Yeoman Generators
 file:gdg_2013-11-18_yo_grunt_bower/yo.png
 
 
-- npm searching 
-
-Alternatively we could have done: 
+** Searching 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
 
 #+BEGIN_SRC sh
 npm search yeoman-generator chromeapp
 npm search yeoman-generator angular
 #+END_SRC
 
-** Grunt 
+- https://npmjs.org/package/generator-angular
+
+** Updating 
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: slide
+  :END:
+
+#+BEGIN_SRC sh
+npm update -g generator-chromeapp
+#+END_SRC
+
+
+* Grunt Plugins
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
@@ -334,12 +383,66 @@ https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Reposit
 - Wrap
 - Linting
 
-* Installation
+* Grunt Plugins Angular
+
+#+BEGIN_SRC json
+{
+  "name": "gdgangularbuzz",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-autoprefixer": "~0.4.0",
+    "grunt-concurrent": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-imagemin": "~0.3.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-google-cdn": "~0.2.0",
+    "grunt-ngmin": "~0.0.2",
+    "grunt-rev": "~0.1.0",
+    "grunt-svgmin": "~0.2.0",
+    "grunt-usemin": "~2.0.0",
+    "jshint-stylish": "~0.1.3",
+    "load-grunt-tasks": "~0.2.0",
+    "time-grunt": "~0.2.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
+#+END_SRC
+* Grunt plugins Angular DI
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-Starting with a clean installation.  
+- http://gruntjs.com/plugins/
+
+#+BEGIN_QUOTE
+You can try to alleviate the pain connected with writing DI
+annotations by using build-time tools that would post-process your
+code and add annotations automatically. Such tools are not trivial to
+write (as JavaScript code analysis is required) and are not widespread
+yet. Still, if your build system is Grunt.js based, you can give the
+ngmin (https:// github.com/ btford/ ngmin) Grunt.js task (grunt-ngmin)
+a try.
+
+Kozlowski, Pawel; Darwin, Peter Bacon (2013-08-23). Mastering Web
+Application Development with AngularJS (Kindle Locations 6454-6457).
+PACKT PUBLISHING. Kindle Edition. 
+#+END_QUOTE
 
 * History
   :PROPERTIES:
@@ -362,12 +465,10 @@ This is broadly the history of all JavaScript Tooling:
 - November 2012 first public Bower release at 0.5 from Twitter 
 - February 2013: Grunt 0.4 adds local checkout  
 
-* Grunt plugins
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
+* Yeoman Generators 
 
-- http://gruntjs.com/plugins/
+
+
 
 * Updating 
   :PROPERTIES:
