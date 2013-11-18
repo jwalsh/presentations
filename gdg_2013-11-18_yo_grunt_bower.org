@@ -1,4 +1,4 @@
-#+TITLE: Using Yeoman, Grunt, and Bower with Chrome Applications and AngularJS
+#+TITLE: Yeoman / Grunt / Bower
 #+AUTHOR: Jason Walsh
 #+EMAIL: jwalsh@bluekai.com
 #+KEYWORDS: javascript, tools, build, chrome, google, gdg
@@ -17,7 +17,7 @@ file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 - What do they do 
 - When would you want to use 
 
-* Getting Started 
+* Yeoman, Grunt, and Bower with Chrome Applications and AngularJS
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
 
