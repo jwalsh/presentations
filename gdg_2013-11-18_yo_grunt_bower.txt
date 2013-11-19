@@ -1,0 +1,448 @@
+                        ________________________
+
+                         YEOMAN / GRUNT / BOWER
+
+                              Jason Walsh
+                        ________________________
+
+
+
+
+
+Overview
+========
+
+  [file:gdg_2013-11-18_yo_grunt_bower/toolset.png]
+
+  - Increased visibility in the last year of JavaScript tools
+  - Integrate two applications and update the configuration
+  - Why do the tools exist
+
+
+Yeoman, Grunt, and Bower with Packaged Apps and AngularJS
+=========================================================
+
+        Create a Chrome packaged application that uses the Google
+        Drive API and an Angular application and add in support
+        for manifest generation.
+
+
+Setup
+=====
+
+Yeoman
+~~~~~~
+
+  Find the following applications: /generator-chromeapp/ and
+  /generator-angular/
+
+  ,----
+  | yo
+  `----
+
+  ,----
+  | npm -g install generator-{chromeapp,angular}
+  `----
+
+
+Chrome App Project (gDrive)                                         :s0:
+===========================
+
+
+
+
+Setup
+~~~~~
+
+  ,----
+  | mkdir -p driveChrome && cd $_
+  | yo chromeapp:app
+  | npm install
+  `----
+
+
+Layout
+~~~~~~
+
+  ,----
+  | |-- Gruntfile.js
+  | |-- app
+  | |   |-- bower_components
+  | |   |-- images
+  | |   |-- index.html
+  | |   |-- manifest.json
+  | |   |-- scripts
+  | |   `-- styles
+  | |-- bower.json
+  | `-- package.json
+  `----
+
+
+Chrome App Build
+================
+
+Building
+~~~~~~~~
+
+  ,----
+  | grunt
+  `----
+
+
+Output
+~~~~~~
+
+  ,----
+  | Running "jshint:all" (jshint) task
+  | >> 2 files lint free.
+  | 
+  | Running "clean:server" (clean) task
+  | 
+  | Running "concurrent:test" (concurrent) task
+  `----
+
+
+Chrome App Verify
+=================
+
+  - View the application
+  - Tools > Extensions
+  - Load Unpacked Extension
+
+  [file:gdg_2013-11-18_yo_grunt_bower/driveChrome.png]
+
+
+Chrome App Feature (s3)
+=======================
+
+  [http://developer.chrome.com/apps/angular_framework.html]
+
+
+  - Update the app functionality
+  - driveChrome is a sample application that uses Angular
+  - Rebuild as a watcher
+  - We're going to remove the hosted dependency on Angular
+
+
+Chrome App Dependencies (s4)
+============================
+
+Angular
+~~~~~~~
+
+  ,----
+  | bower install angular\#1.0.8 --save-dev
+  `----
+
+  ,----
+  | "devDependencies": {
+  |   "angular": "~1.2"
+  | }
+  `----
+
+
+Remove Local
+~~~~~~~~~~~~
+
+  ,----
+  | <script src="bower_components/angular/angular.js"></script>
+  `----
+
+
+Chrome App Compression (s5)
+===========================
+
+  ,----
+  | npm install grunt-contrib-compress --save-dev
+  `----
+
+  ,----
+  | // grunt.loadNpmTasks('grunt-contrib-compress');
+  |     compress: {
+  |       main: {
+  |         options: {
+  |           archive: 'archive.zip'
+  |         },
+  |         files: [
+  |           {src: ['app/**']}
+  |         ]
+  |       }
+  |     },
+  `----
+
+
+Chrome App Linting
+==================
+
+  ,----
+  | fixjsstyle Gruntfile.js app
+  `----
+
+  ,----
+  | "indent": 2,
+  `----
+
+  ,----
+  | grunt server
+  `----
+
+
+Angular Project (Buzz) (s10)
+============================
+
+
+
+
+Setup
+~~~~~
+
+  ,----
+  | mkdir -p buzzAngular && cd $_
+  | yo
+  | npm install
+  | grunt serve
+  `----
+
+
+Layout
+~~~~~~
+
+  ,----
+  | |-- Gruntfile.js
+  | |-- app
+  | |   |-- index.html
+  | |   |-- scripts
+  | |   |-- styles
+  | |   `-- views
+  | |-- bower.json
+  | |-- package.json
+  | `-- test
+  |     |-- runner.html
+  |     `-- spec
+  `----
+
+
+Angular Chrome Manifest
+=======================
+
+
+  ,----
+  | npm install grunt-chrome-manifest --save-dev
+  `----
+
+  ,----
+  | grunt.loadNpmTasks('grunt-chrome-manifest');
+  | grunt.registerTask('default', ['chromeManifest:dist']);
+  `----
+
+  ,----
+  | chromeManifest: {
+  |   dist: {
+  |     options: {
+  |       buildnumber: 'both',
+  |       background: {
+  |         target: 'scripts/background.js',
+  |         exclude: [
+  |           'background/scripts/chromereload.js'
+  |         ]
+  |       }
+  |     },
+  |     src: 'app',
+  |     dest: 'dist'
+  |   }
+  | }
+  `----
+
+
+Angular Application
+===================
+
+  ,----
+  | {
+  |   "name": "Angular Package App Demo",
+  |   "description": "Demo",
+  |   "version": "1",
+  |   "app": {
+  |     "launch": {
+  |       "local_path": "index.html"
+  |     }
+  |   },
+  |   "icons": {
+  |     "16": "icon_16.png",
+  |     "128": "icon_128.png"
+  |   }
+  | }
+  `----
+
+
+Angular Dependencies
+====================
+
+Update dependencies
+~~~~~~~~~~~~~~~~~~~
+
+  ,----
+  | "es5-shim": "~2.1.0",
+  | "jquery": "~2.0.3",
+  | "sass-bootstrap": "~3.0.0",
+  `----
+
+
+Yeoman Creates Projects
+=======================
+
+  [http://yeoman.io/]
+
+  Other task-oriented build tools:
+
+  - rails, lein
+
+  [file:gdg_2013-11-18_yo_grunt_bower/eg-yo.png]
+
+
+Yeoman Generators
+=================
+
+  ,----
+  | yo --help
+  `----
+
+
+Searching
+~~~~~~~~~
+
+  ,----
+  | npm search yeoman-generator chromeapp
+  | npm search yeoman-generator angular
+  `----
+
+
+Updating
+~~~~~~~~
+
+  ,----
+  | npm update -g generator-chromeapp
+  `----
+
+
+Grunt Builds Projects
+=====================
+
+  [http://gruntjs.com/]
+
+  - make, ant, rake, gradle, lein
+
+  [file:gdg_2013-11-18_yo_grunt_bower/eg-grunt.png]
+
+  ,----
+  | grunt --help
+  `----
+
+
+Grunt Plugins
+=============
+
+  - Grunt.js search on GitHub
+  - [https://npmjs.org/browse/keyword/gruntplugin]
+
+  Use GitHub for sample plugins:
+
+  [https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Repositories]
+
+  - [https://github.com/angular/angular.js/blob/master/Gruntfile.js]
+  - [https://github.com/eBay/skin/blob/master/Gruntfile.js]
+  - [https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js]
+
+
+Grunt Plugins Angular
+=====================
+
+  ,----
+  | "grunt-autoprefixer": "~0.4.0",
+  | "grunt-concurrent": "~0.4.1",
+  | "grunt-contrib-coffee": "~0.7.0",
+  | "grunt-contrib-concat": "~0.3.0",
+  | "grunt-contrib-htmlmin": "~0.1.3",
+  | "grunt-contrib-imagemin": "~0.3.0",
+  | "grunt-contrib-jshint": "~0.7.1",
+  | "grunt-contrib-uglify": "~0.2.0",
+  | "grunt-contrib-watch": "~0.5.2",
+  | "grunt-google-cdn": "~0.2.0",
+  | "grunt-ngmin": "~0.0.2",
+  | "grunt-rev": "~0.1.0",
+  | "jshint-stylish": "~0.1.3",
+  | "load-grunt-tasks": "~0.2.0",
+  | "time-grunt": "~0.2.0"
+  `----
+
+
+Grunt plugins Angular DI
+========================
+
+        You can try to alleviate the pain connected with writing
+        DI annotations by using build-time tools that would
+        post-process your code and add annotations automatically.
+        ... Still, if your build system is Grunt.js based, you can
+        give the ngmin Grunt.js task (grunt-ngmin) a try.
+
+  /Mastering Web Application Development with AngularJS/ (Kindle
+  Locations 6454-6457).
+
+
+Bower Manages Dependencies
+==========================
+
+  [http://bower.io/]
+
+  - ivy, maven, pip
+
+  [file:gdg_2013-11-18_yo_grunt_bower/eg-bower.png]
+
+  ,----
+  | bower --help
+  `----
+
+
+JavaScript Tools
+================
+
+  - project templates
+  - consistency of style
+  - compile on watch
+  - static builds
+  - HTML rewriting
+  - shell script
+  - CSS pre-processors
+  - dependency checking
+
+  These all feed into the lifestyle of projects in JavaScript.
+
+
+Friction
+========
+
+  - Offline access
+  - [file://] development locally
+  - Version control and sub-module access
+  - Server-side integration
+  - Old tutorials
+  - Local build tools need local NPM hosting
+
+
+Conclusion
+==========
+
+  - Useful in single page applications
+  - Merging generators will likely not result in the correct outcome
+  - Still very young
+
+
+Questions?
+==========
+
+  - Deck: [http://bit.ly/I0g5RN]
+  - Generator: [https://npmjs.org/package/generator-crangular]
+  - Examples: [https://github.com/jwalsh/gdg_2013-11-18_yo_grunt_bower]
+
+  - Twitter: @jwalsh_
+  - GitHub: jwalsh

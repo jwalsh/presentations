@@ -108,7 +108,7 @@ file:gdg_2013-11-18_yo_grunt_bower/driveChrome.png
   
 http://developer.chrome.com/apps/angular_framework.html
 
-# rm -f app ; cp -R ../chrome-app-samples/gdrive app
+# rm -rf app ; cp -R ../chrome-app-samples/gdrive app
 
 - Update the app functionality 
 - driveChrome is a sample application that uses Angular 
