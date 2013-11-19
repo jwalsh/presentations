@@ -425,6 +425,7 @@ These all feed into the lifestyle of projects in JavaScript.
 
 - Deck: http://bit.ly/I0g5RN
 - Generator: https://npmjs.org/package/generator-crangular
+- Examples: https://github.com/jwalsh/gdg_2013-11-18_yo_grunt_bower
 
 - Twitter: @jwalsh_
 - GitHub: jwalsh
