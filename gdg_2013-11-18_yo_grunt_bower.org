@@ -21,18 +21,15 @@
 file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
 - Increased visibility in the last year of JavaScript tools 
-- Integrate two applications
-- Show core workflow when maintaining applications 
+- Integrate two applications and update the configuration
 - Why do the tools exist 
-- Q&A
   
 * Yeoman, Grunt, and Bower with Packaged Apps and AngularJS
 
-file:gdg_2013-11-18_yo_grunt_bower/dog.png
-
-We'll look at a Chrome packaged application that uses the Google Drive
-API and an Angular application from boilerplate that creates manifest.json 
-
+#+BEGIN_QUOTE
+Create a Chrome packaged application that uses the Google Drive API
+and an Angular application and add in support for manifest generation. 
+#+END_QUOTE
 
 * Setup 
 
@@ -48,7 +45,7 @@ yo
 npm -g install generator-{chromeapp,angular}
 #+END_SRC
 
-* Chrome App Project (Drive Chrome) (s0)
+* Chrome App Project (gDrive)                                            :s0:
 
 # sandbox/gdg_2013-11-18_yo_grunt_bower/todoChrm
 
@@ -68,7 +65,6 @@ npm install
 #+BEGIN_EXAMPLE
 |-- Gruntfile.js
 |-- app
-|   |-- _locales
 |   |-- bower_components
 |   |-- images
 |   |-- index.html
@@ -82,9 +78,6 @@ npm install
 * Chrome App Build
 
 ** Building 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
 
 #+BEGIN_SRC sh
 grunt
@@ -111,7 +104,7 @@ Running "concurrent:test" (concurrent) task
 
 file:gdg_2013-11-18_yo_grunt_bower/driveChrome.png
 
-* Chrome App Feature (gDrive) (s3)
+* Chrome App Feature (s3)
   
 http://developer.chrome.com/apps/angular_framework.html
 
@@ -132,12 +125,6 @@ bower install angular\#1.0.8 --save-dev
 
 #+BEGIN_SRC json
   "devDependencies": {
-    "angular": "1.0.8"
-  }
-#+END_SRC
-
-#+BEGIN_SRC json
-  "devDependencies": {
     "angular": "~1.2"
   }
 #+END_SRC
@@ -148,31 +135,17 @@ bower install angular\#1.0.8 --save-dev
    :END:
 
 #+BEGIN_SRC html
-<script src="js/angular-1.1.0.min.js"></script>
-<script src="js/app.js"></script>
-
-#+END_SRC
-
-#+BEGIN_SRC html
 <script src="bower_components/angular/angular.js"></script>
-<script src="js/app.js"></script>
-
 #+END_SRC
-
 
 * Chrome App Compression (s5)
-
-- https://github.com/gruntjs/grunt-contrib-compress
 
 #+BEGIN_SRC sh
 npm install grunt-contrib-compress --save-dev
 #+END_SRC
 
 #+BEGIN_SRC javascript
-grunt.loadNpmTasks('grunt-contrib-compress');
-#+END_SRC
-
-#+BEGIN_SRC javascript
+// grunt.loadNpmTasks('grunt-contrib-compress');
     compress: {
       main: {
         options: {
@@ -203,16 +176,10 @@ grunt server
 #+END_SRC
 
 * Angular Project (Buzz) (s10)
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
 
   # gdg_2013-11-18_yo_grunt_bower/angularBuzz
 
 ** Setup 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
 
 #+BEGIN_SRC sh
 mkdir -p buzzAngular && cd $_
@@ -242,7 +209,7 @@ grunt serve
 
 * Angular Chrome Manifest
 
-https://npmjs.org/package/grunt-chrome-manifest
+# https://npmjs.org/package/grunt-chrome-manifest
 
 #+BEGIN_SRC sh
 npm install grunt-chrome-manifest --save-dev
@@ -320,7 +287,6 @@ file:gdg_2013-11-18_yo_grunt_bower/eg-yo.png
 yo --help
 #+END_SRC
 
-
 ** Searching 
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
@@ -331,7 +297,7 @@ npm search yeoman-generator chromeapp
 npm search yeoman-generator angular
 #+END_SRC
 
-- https://npmjs.org/package/generator-angular
+# https://npmjs.org/package/generator-angular
 
 ** Updating 
   :PROPERTIES:
@@ -376,21 +342,10 @@ https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Reposit
 * Grunt Plugins Angular
 
 #+BEGIN_SRC json
-{
-  "name": "gdgangularbuzz",
-  "version": "0.0.0",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.4.0",
     "grunt-concurrent": "~0.4.1",
-    "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-connect": "~0.5.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-htmlmin": "~0.1.3",
     "grunt-contrib-imagemin": "~0.3.0",
     "grunt-contrib-jshint": "~0.7.1",
@@ -399,41 +354,26 @@ https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Reposit
     "grunt-google-cdn": "~0.2.0",
     "grunt-ngmin": "~0.0.2",
     "grunt-rev": "~0.1.0",
-    "grunt-svgmin": "~0.2.0",
-    "grunt-usemin": "~2.0.0",
     "jshint-stylish": "~0.1.3",
     "load-grunt-tasks": "~0.2.0",
     "time-grunt": "~0.2.0"
-  },
-  "engines": {
-    "node": ">=0.8.0"
-  },
-  "scripts": {
-    "test": "grunt test"
-  }
-}
 #+END_SRC
 * Grunt plugins Angular DI
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-- http://gruntjs.com/plugins/
-
 #+BEGIN_QUOTE
 You can try to alleviate the pain connected with writing DI
 annotations by using build-time tools that would post-process your
-code and add annotations automatically. Such tools are not trivial to
-write (as JavaScript code analysis is required) and are not widespread
-yet. Still, if your build system is Grunt.js based, you can give the
-ngmin (https:// github.com/ btford/ ngmin) Grunt.js task (grunt-ngmin)
+code and add annotations automatically. 
+...
+Still, if your build system is Grunt.js based, you can give the
+ngmin Grunt.js task (grunt-ngmin)
 a try.
-
-Kozlowski, Pawel; Darwin, Peter Bacon (2013-08-23). Mastering Web
-Application Development with AngularJS (Kindle Locations 6454-6457).
-PACKT PUBLISHING. Kindle Edition. 
 #+END_QUOTE
 
+/Mastering Web Application Development with AngularJS/ (Kindle Locations 6454-6457).
 
 * Bower Manages Dependencies
    :PROPERTIES:
@@ -470,9 +410,9 @@ These all feed into the lifestyle of projects in JavaScript.
 
 - Offline access 
 - file:// development locally
-- Version control and submodule access 
+- Version control and sub-module access 
 - Server-side integration
-- Beware of old tutorials
+- Old tutorials
 - Local build tools need local NPM hosting
 
 * Conclusion
@@ -483,7 +423,7 @@ These all feed into the lifestyle of projects in JavaScript.
 
 * Questions?
 
-- Deck: http://wal.sh/p/gdg_2013-11-18_yo_grunt_bower.html
+- Deck: http://bit.ly/I0g5RN
 - Generator: https://npmjs.org/package/generator-crangular
 
 - Twitter: @jwalsh_

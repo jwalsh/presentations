@@ -209,13 +209,9 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>Increased visibility in the last year of JavaScript tools 
 </li>
-<li>Integrate two applications
-</li>
-<li>Show core workflow when maintaining applications 
+<li>Integrate two applications and update the configuration
 </li>
 <li>Why do the tools exist 
-</li>
-<li>Q&amp;A
 </li>
 </ul>
 </div>
@@ -223,19 +219,14 @@ for the JavaScript code in this tag.
 <div id="outline-container-sec-2" class="outline-2  slide">
 <h2 id="sec-2">Yeoman, Grunt, and Bower with Packaged Apps and AngularJS</h2>
 <div class="outline-text-2" id="text-2">
-
-<div class="figure">
-<p><img src="gdg_2013-11-18_yo_grunt_bower/dog.png" alt="dog.png" />
-</p>
-</div>
-
+<blockquote>
 <p>
-We'll look at a Chrome packaged application that uses the Google Drive
-API and an Angular application from boilerplate that creates manifest.json 
+Create a Chrome packaged application that uses the Google Drive API
+and an Angular application and add in support for manifest generation. 
 </p>
+</blockquote>
 </div>
 </div>
-
 <div id="outline-container-sec-3" class="outline-2  slide">
 <h2 id="sec-3">Setup</h2>
 <div class="outline-text-2" id="text-3">
@@ -261,7 +252,7 @@ Find the following applications: <i>generator-chromeapp</i> and <i>generator-ang
 </div>
 </div>
 <div id="outline-container-sec-4" class="outline-2  slide">
-<h2 id="sec-4">Chrome App Project (Drive Chrome) (s0)</h2>
+<h2 id="sec-4">Chrome App Project (gDrive)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="s0">s0</span></span></h2>
 <div class="outline-text-2" id="text-4">
 </div>
 
@@ -284,7 +275,6 @@ npm install
 <pre class="example">
 |-- Gruntfile.js
 |-- app
-|   |-- _locales
 |   |-- bower_components
 |   |-- images
 |   |-- index.html
@@ -300,10 +290,9 @@ npm install
 <div id="outline-container-sec-5" class="outline-2  slide">
 <h2 id="sec-5">Chrome App Build</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-sec-5-1" class="outline-3 slide">
+</div><div id="outline-container-sec-5-1" class="outline-3">
 <h3 id="sec-5-1">Building</h3>
 <div class="outline-text-3" id="text-5-1">
-
 <div class="org-src-container">
 
 <pre class="src src-sh">grunt
@@ -347,7 +336,7 @@ Running "concurrent:test" (concurrent) task
 </div>
 </div>
 <div id="outline-container-sec-7" class="outline-2  slide">
-<h2 id="sec-7">Chrome App Feature (gDrive) (s3)</h2>
+<h2 id="sec-7">Chrome App Feature (s3)</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="http://developer.chrome.com/apps/angular_framework.html">http://developer.chrome.com/apps/angular_framework.html</a>
@@ -380,14 +369,6 @@ Running "concurrent:test" (concurrent) task
 <div class="org-src-container">
 
 <pre class="src src-json"><span style="color: #F0DFAF; font-weight: bold;">"devDependencies":</span> {
-  <span style="color: #F0DFAF; font-weight: bold;">"angular":</span> <span style="color: #CC9393;">"1.0.8"</span>
-}
-</pre>
-</div>
-
-<div class="org-src-container">
-
-<pre class="src src-json"><span style="color: #F0DFAF; font-weight: bold;">"devDependencies":</span> {
   <span style="color: #F0DFAF; font-weight: bold;">"angular":</span> <span style="color: #CC9393;">"~1.2"</span>
 }
 </pre>
@@ -400,29 +381,15 @@ Running "concurrent:test" (concurrent) task
 
 <div class="org-src-container">
 
-<pre class="src src-html">&lt;<span style="color: #93E0E3;">script</span> <span style="color: #DFAF8F;">src</span>=<span style="color: #CC9393;">"js/angular-1.1.0.min.js"</span>&gt;&lt;/<span style="color: #93E0E3;">script</span>&gt;
-&lt;<span style="color: #93E0E3;">script</span> <span style="color: #DFAF8F;">src</span>=<span style="color: #CC9393;">"js/app.js"</span>&gt;&lt;/<span style="color: #93E0E3;">script</span>&gt;
-</pre>
-</div>
-
-<div class="org-src-container">
-
 <pre class="src src-html">&lt;<span style="color: #93E0E3;">script</span> <span style="color: #DFAF8F;">src</span>=<span style="color: #CC9393;">"bower_components/angular/angular.js"</span>&gt;&lt;/<span style="color: #93E0E3;">script</span>&gt;
-&lt;<span style="color: #93E0E3;">script</span> <span style="color: #DFAF8F;">src</span>=<span style="color: #CC9393;">"js/app.js"</span>&gt;&lt;/<span style="color: #93E0E3;">script</span>&gt;
 </pre>
 </div>
 </div>
 </div>
 </div>
-
 <div id="outline-container-sec-9" class="outline-2  slide">
 <h2 id="sec-9">Chrome App Compression (s5)</h2>
 <div class="outline-text-2" id="text-9">
-<ul class="org-ul">
-<li><a href="https://github.com/gruntjs/grunt-contrib-compress">https://github.com/gruntjs/grunt-contrib-compress</a>
-</li>
-</ul>
-
 <div class="org-src-container">
 
 <pre class="src src-sh">npm install grunt-contrib-compress --save-dev
@@ -431,22 +398,17 @@ Running "concurrent:test" (concurrent) task
 
 <div class="org-src-container">
 
-<pre class="src src-javascript">grunt.loadNpmTasks(<span style="color: #CC9393;">'grunt-contrib-compress'</span>);
-</pre>
-</div>
-
-<div class="org-src-container">
-
-<pre class="src src-javascript">compress: {
-  main: {
-    options: {
-      archive: <span style="color: #CC9393;">'archive.zip'</span>
+<pre class="src src-javascript"><span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">grunt.loadNpmTasks('grunt-contrib-compress');</span>
+    compress: {
+      main: {
+        options: {
+          archive: <span style="color: #CC9393;">'archive.zip'</span>
+        },
+        files: [
+          {src: [<span style="color: #CC9393;">'app/**'</span>]}
+        ]
+      }
     },
-    files: [
-      {src: [<span style="color: #CC9393;">'app/**'</span>]}
-    ]
-  }
-},
 </pre>
 </div>
 </div>
@@ -472,16 +434,14 @@ Running "concurrent:test" (concurrent) task
 </div>
 </div>
 </div>
-<div id="outline-container-sec-11" class="outline-2 slide">
+<div id="outline-container-sec-11" class="outline-2  slide">
 <h2 id="sec-11">Angular Project (Buzz) (s10)</h2>
 <div class="outline-text-2" id="text-11">
-
 </div>
 
-<div id="outline-container-sec-11-1" class="outline-3 slide">
+<div id="outline-container-sec-11-1" class="outline-3">
 <h3 id="sec-11-1">Setup</h3>
 <div class="outline-text-3" id="text-11-1">
-
 <div class="org-src-container">
 
 <pre class="src src-sh">mkdir -p buzzAngular &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">cd</span> $<span style="color: #DFAF8F;">_</span>
@@ -515,10 +475,6 @@ grunt serve
 <div id="outline-container-sec-12" class="outline-2  slide">
 <h2 id="sec-12">Angular Chrome Manifest</h2>
 <div class="outline-text-2" id="text-12">
-<p>
-<a href="https://npmjs.org/package/grunt-chrome-manifest">https://npmjs.org/package/grunt-chrome-manifest</a>
-</p>
-
 <div class="org-src-container">
 
 <pre class="src src-sh">npm install grunt-chrome-manifest --save-dev
@@ -624,7 +580,6 @@ Other task-oriented build tools:
 </div>
 </div>
 
-
 <div id="outline-container-sec-16-1" class="outline-3 slide">
 <h3 id="sec-16-1">Searching</h3>
 <div class="outline-text-3" id="text-16-1">
@@ -635,11 +590,6 @@ Other task-oriented build tools:
 npm search yeoman-generator angular
 </pre>
 </div>
-
-<ul class="org-ul">
-<li><a href="https://npmjs.org/package/generator-angular">https://npmjs.org/package/generator-angular</a>
-</li>
-</ul>
 </div>
 </div>
 <div id="outline-container-sec-16-2" class="outline-3 slide">
@@ -714,42 +664,21 @@ Use GitHub for sample plugins:
 <div class="outline-text-2" id="text-19">
 <div class="org-src-container">
 
-<pre class="src src-json">{
-  <span style="color: #F0DFAF; font-weight: bold;">"name":</span> <span style="color: #CC9393;">"gdgangularbuzz"</span>,
-  <span style="color: #F0DFAF; font-weight: bold;">"version":</span> <span style="color: #CC9393;">"0.0.0"</span>,
-  <span style="color: #F0DFAF; font-weight: bold;">"dependencies":</span> {},
-  <span style="color: #F0DFAF; font-weight: bold;">"devDependencies":</span> {
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt":</span> <span style="color: #CC9393;">"~0.4.1"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-autoprefixer":</span> <span style="color: #CC9393;">"~0.4.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-concurrent":</span> <span style="color: #CC9393;">"~0.4.1"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-clean":</span> <span style="color: #CC9393;">"~0.5.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-coffee":</span> <span style="color: #CC9393;">"~0.7.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-compass":</span> <span style="color: #CC9393;">"~0.6.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-concat":</span> <span style="color: #CC9393;">"~0.3.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-connect":</span> <span style="color: #CC9393;">"~0.5.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-copy":</span> <span style="color: #CC9393;">"~0.4.1"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-cssmin":</span> <span style="color: #CC9393;">"~0.7.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-htmlmin":</span> <span style="color: #CC9393;">"~0.1.3"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-imagemin":</span> <span style="color: #CC9393;">"~0.3.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-jshint":</span> <span style="color: #CC9393;">"~0.7.1"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-uglify":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-watch":</span> <span style="color: #CC9393;">"~0.5.2"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-google-cdn":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-ngmin":</span> <span style="color: #CC9393;">"~0.0.2"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-rev":</span> <span style="color: #CC9393;">"~0.1.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-svgmin":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"grunt-usemin":</span> <span style="color: #CC9393;">"~2.0.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"jshint-stylish":</span> <span style="color: #CC9393;">"~0.1.3"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"load-grunt-tasks":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
-    <span style="color: #F0DFAF; font-weight: bold;">"time-grunt":</span> <span style="color: #CC9393;">"~0.2.0"</span>
-  },
-  <span style="color: #F0DFAF; font-weight: bold;">"engines":</span> {
-    <span style="color: #F0DFAF; font-weight: bold;">"node":</span> <span style="color: #CC9393;">"&gt;=0.8.0"</span>
-  },
-  <span style="color: #F0DFAF; font-weight: bold;">"scripts":</span> {
-    <span style="color: #F0DFAF; font-weight: bold;">"test":</span> <span style="color: #CC9393;">"grunt test"</span>
-  }
-}
+<pre class="src src-json"><span style="color: #F0DFAF; font-weight: bold;">"grunt-autoprefixer":</span> <span style="color: #CC9393;">"~0.4.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-concurrent":</span> <span style="color: #CC9393;">"~0.4.1"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-coffee":</span> <span style="color: #CC9393;">"~0.7.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-concat":</span> <span style="color: #CC9393;">"~0.3.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-htmlmin":</span> <span style="color: #CC9393;">"~0.1.3"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-imagemin":</span> <span style="color: #CC9393;">"~0.3.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-jshint":</span> <span style="color: #CC9393;">"~0.7.1"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-uglify":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-contrib-watch":</span> <span style="color: #CC9393;">"~0.5.2"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-google-cdn":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-ngmin":</span> <span style="color: #CC9393;">"~0.0.2"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"grunt-rev":</span> <span style="color: #CC9393;">"~0.1.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"jshint-stylish":</span> <span style="color: #CC9393;">"~0.1.3"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"load-grunt-tasks":</span> <span style="color: #CC9393;">"~0.2.0"</span>,
+<span style="color: #F0DFAF; font-weight: bold;">"time-grunt":</span> <span style="color: #CC9393;">"~0.2.0"</span>
 </pre>
 </div>
 </div>
@@ -759,31 +688,23 @@ Use GitHub for sample plugins:
 <h2 id="sec-20">Grunt plugins Angular DI</h2>
 <div class="outline-text-2" id="text-20">
 
-<ul class="org-ul">
-<li><a href="http://gruntjs.com/plugins/">http://gruntjs.com/plugins/</a>
-</li>
-</ul>
-
 <blockquote>
 <p>
 You can try to alleviate the pain connected with writing DI
 annotations by using build-time tools that would post-process your
-code and add annotations automatically. Such tools are not trivial to
-write (as JavaScript code analysis is required) and are not widespread
-yet. Still, if your build system is Grunt.js based, you can give the
-ngmin (<a href="https://">https://</a> github.com/ btford/ ngmin) Grunt.js task (grunt-ngmin)
+code and add annotations automatically. 
+&#x2026;
+Still, if your build system is Grunt.js based, you can give the
+ngmin Grunt.js task (grunt-ngmin)
 a try.
 </p>
+</blockquote>
 
 <p>
-Kozlowski, Pawel; Darwin, Peter Bacon (2013-08-23). Mastering Web
-Application Development with AngularJS (Kindle Locations 6454-6457).
-PACKT PUBLISHING. Kindle Edition. 
+<i>Mastering Web Application Development with AngularJS</i> (Kindle Locations 6454-6457).
 </p>
-</blockquote>
 </div>
 </div>
-
 <div id="outline-container-sec-21" class="outline-2 slide">
 <h2 id="sec-21">Bower Manages Dependencies</h2>
 <div class="outline-text-2" id="text-21">
@@ -846,11 +767,11 @@ These all feed into the lifestyle of projects in JavaScript.
 </li>
 <li><a href="file:////">file:////</a> development locally
 </li>
-<li>Version control and submodule access 
+<li>Version control and sub-module access 
 </li>
 <li>Server-side integration
 </li>
-<li>Beware of old tutorials
+<li>Old tutorials
 </li>
 <li>Local build tools need local NPM hosting
 </li>
@@ -874,7 +795,7 @@ These all feed into the lifestyle of projects in JavaScript.
 <h2 id="sec-25">Questions?</h2>
 <div class="outline-text-2" id="text-25">
 <ul class="org-ul">
-<li>Deck: <a href="http://wal.sh/p/gdg_2013-11-18_yo_grunt_bower.html">http://wal.sh/p/gdg_2013-11-18_yo_grunt_bower.html</a>
+<li>Deck: <a href="http://bit.ly/I0g5RN">http://bit.ly/I0g5RN</a>
 </li>
 <li>Generator: <a href="https://npmjs.org/package/generator-crangular">https://npmjs.org/package/generator-crangular</a>
 </li>
