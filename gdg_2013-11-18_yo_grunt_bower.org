@@ -11,6 +11,7 @@
 # s3
 # s4 - Bower owns Angular 
 # s5 - Grunt task for compression 
+# s11 - Angular app with dependency update and manifest
 
 * Overview
   :PROPERTIES:
@@ -19,15 +20,14 @@
 
 file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 
-- Increased presence in the last year
-- Integrate a simple app for Chrome using Angular
-- Integrate a simple Angular application into a Chrome App
+- Increased visibility in the last year of JavaScript tools 
+- Integrate two applications
 - Show core workflow when maintaining applications 
 - Why do the tools exist 
 - What do they do 
 - When would you want to use 
 - Q&A
-
+  
 * Yeoman, Grunt, and Bower with Packaged Apps and AngularJS
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
@@ -51,7 +51,7 @@ yo
 npm -g install generator-{chromeapp,angular}
 #+END_SRC
 
-* Chrome App Project (Drive Chrome) (s1)
+* Chrome App Project (Drive Chrome) (s0)
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
@@ -202,7 +202,7 @@ grunt.loadNpmTasks('grunt-contrib-compress');
     },
 #+END_SRC
 
-** Linting 
+* Chrome App Linting 
    :PROPERTIES:
    :HTML_CONTAINER_CLASS: slide
    :END:
@@ -215,14 +215,12 @@ fixjsstyle Gruntfile.js app
     "indent": 2,
 #+END_EXAMPLE
 
-** CSP 
-
-* Angular Project (Buzz) 
+* Angular Project (Buzz) (s10)
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-# gdg_2013-11-18_yo_grunt_bower/tmpAng
+  # gdg_2013-11-18_yo_grunt_bower/angularBuzz
 
 ** Setup 
    :PROPERTIES:
@@ -230,8 +228,8 @@ fixjsstyle Gruntfile.js app
    :END:
 
 #+BEGIN_SRC sh
-mkdir -p ~/sandbox/buzzAngular && cd $_
-yo angular:app
+mkdir -p buzzAngular && cd $_
+yo
 npm install
 #+END_SRC
 
@@ -261,9 +259,8 @@ npm install
 
 * Angular Build
 
-
 #+BEGIN_SRC sh
-grunt watch
+grunt serve
 #+END_SRC
 
 ** Manifest
@@ -272,6 +269,11 @@ https://npmjs.org/package/grunt-chrome-manifest
 
 #+BEGIN_SRC sh
 npm install grunt-chrome-manifest --save-dev
+#+END_SRC
+
+#+BEGIN_SRC js
+grunt.loadNpmTasks('grunt-chrome-manifest');
+grunt.registerTask('default', ['chromeManifest:dist']);
 #+END_SRC
 
 #+BEGIN_SRC json
@@ -312,7 +314,7 @@ chromeManifest: {
 #+END_SRC
 
 * Angular Dependencies
-
+  
 ** Update dependencies 
 
 #+BEGIN_SRC js
@@ -336,64 +338,12 @@ Other task-oriented build tools:
 
 file:gdg_2013-11-18_yo_grunt_bower/eg-yo.png
 
+* Yeoman Generators
+
 #+BEGIN_SRC sh
 yo --help
 #+END_SRC
 
-* Grunt Builds Projects 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
-
-  http://gruntjs.com/
-
-- make 
-- ant 
-- rake 
-- gradle 
-- lein
-
-file:gdg_2013-11-18_yo_grunt_bower/eg-grunt.png
-
-#+BEGIN_SRC sh
-grunt --help
-#+END_SRC
-
-* Bower Manages Dependencies
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
-
-  http://bower.io/
-
-- ivy 
-- maven 
-- pip 
-
-file:gdg_2013-11-18_yo_grunt_bower/eg-bower.png
-
-#+BEGIN_SRC sh
-bower --help
-#+END_SRC
-
-* JavaScript Tools
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
-
-- project templates
-- consistency of style 
-- compile on watch 
-- static builds 
-- HTML rewriting 
-- shell script 
-- CSS pre-processors
-- dependency checking 
-
-These all feed into the lifestyle of projects in JavaScript. 
-
-* Yeoman Generators
-file:gdg_2013-11-18_yo_grunt_bower/yo.png
 
 ** Searching 
   :PROPERTIES:
@@ -416,18 +366,32 @@ npm search yeoman-generator angular
 npm update -g generator-chromeapp
 #+END_SRC
 
+* Grunt Builds Projects 
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+  http://gruntjs.com/
+
+- make 
+- ant 
+- rake 
+- gradle 
+- lein
+
+file:gdg_2013-11-18_yo_grunt_bower/eg-grunt.png
+
+#+BEGIN_SRC sh
+grunt --help
+#+END_SRC
+
 * Grunt Plugins
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-- Grunt.js search on github 
-
-
-- external tools (sass and coffeescript)
-- code coverage 
-- unit testing 
-- compatibility testing 
+- Grunt.js search on GitHub
+- https://npmjs.org/browse/keyword/gruntplugin
 
 Use GitHub for sample plugins: 
 
@@ -436,12 +400,6 @@ https://github.com/search?o=desc&q=Gruntfile.js&ref=cmdform&s=stars&type=Reposit
 - https://github.com/angular/angular.js/blob/master/Gruntfile.js
 - https://github.com/eBay/skin/blob/master/Gruntfile.js
 - https://github.com/fleeting/gruntfile.js/blob/master/gruntfile.js
-
-
-
-- Unit testing 
-- Wrap
-- Linting
 
 * Grunt Plugins Angular
 
@@ -504,29 +462,44 @@ Application Development with AngularJS (Kindle Locations 6454-6457).
 PACKT PUBLISHING. Kindle Edition. 
 #+END_QUOTE
 
-* History
+
+* Bower Manages Dependencies
+   :PROPERTIES:
+   :HTML_CONTAINER_CLASS: slide
+   :END:
+
+  http://bower.io/
+
+- ivy 
+- maven 
+- pip 
+
+file:gdg_2013-11-18_yo_grunt_bower/eg-bower.png
+
+#+BEGIN_SRC sh
+bower --help
+#+END_SRC
+
+* JavaScript Tools
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
   :END:
 
-This is broadly the history of all JavaScript Tooling: 
+- project templates
+- consistency of style 
+- compile on watch 
+- static builds 
+- HTML rewriting 
+- shell script 
+- CSS pre-processors
+- dependency checking 
 
-
-
-- 2011: Static analysis 
-- JSLint 
-- February 2011: JSHint http://badassjs.com/post/3364925033/jshint-an-community-driven-fork-of-jslint
-- March 2012 Grunt releases with init and basic task support (Ben
-  Alman) http://benalman.com/news/2012/03/introducing-grunt/
-- April 2012 Grunt and Yeoman as a tools tracks at JSConf (both Irish and Alman ) http://2012.jsconf.us/ 
-- June 2012 Grunt on a session for http://events.jquery.org/2012/sf/
-- June 2012 Yeoman releases at Google I/O
-  groups and http://www.youtube.com/watch?v=Mk-tFn2Ix6g
-- November 2012 first public Bower release at 0.5 from Twitter 
-- February 2013: Grunt 0.4 adds local checkout  
+These all feed into the lifestyle of projects in JavaScript. 
 
 * Friction 
 
+- Offline access 
+- file:// development locally
 - Version control and submodule access 
 - Server-side integration
 - Beware of old tutorials
@@ -544,7 +517,7 @@ This is broadly the history of all JavaScript Tooling:
 - Generator: https://npmjs.org/package/generator-crangular
 
 - Twitter: @jwalsh_
-- Email: jwalsh@bluekai.com
+- GitHub: jwalsh
 
 #+OPTIONS: num:nil toc:nil
 
