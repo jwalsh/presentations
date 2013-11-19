@@ -24,18 +24,15 @@ file:gdg_2013-11-18_yo_grunt_bower/toolset.png
 - Integrate two applications
 - Show core workflow when maintaining applications 
 - Why do the tools exist 
-- What do they do 
-- When would you want to use 
 - Q&A
   
 * Yeoman, Grunt, and Bower with Packaged Apps and AngularJS
 
 file:gdg_2013-11-18_yo_grunt_bower/dog.png
 
-- Chrome packaged application that uses the Google Drive API  http://developer.chrome.com/apps/angular_framework.html
-- Angular application from boilerplate that creates manifest.json 
-- chrome://flags/  > Experimental Extension APIs
-- chrome://apps/
+We'll look at a Chrome packaged application that uses the Google Drive
+API and an Angular application from boilerplate that creates manifest.json 
+
 
 * Setup 
 
@@ -52,16 +49,10 @@ npm -g install generator-{chromeapp,angular}
 #+END_SRC
 
 * Chrome App Project (Drive Chrome) (s0)
-  :PROPERTIES:
-  :HTML_CONTAINER_CLASS: slide
-  :END:
 
 # sandbox/gdg_2013-11-18_yo_grunt_bower/todoChrm
 
 ** Setup 
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
 
 #+BEGIN_SRC sh
 mkdir -p driveChrome && cd $_
@@ -87,7 +78,7 @@ npm install
 |-- bower.json
 `-- package.json
 #+END_EXAMPLE
-
+   
 * Chrome App Build
 
 ** Building 
@@ -168,14 +159,6 @@ bower install angular\#1.0.8 --save-dev
 
 #+END_SRC
 
-** Generation
-   :PROPERTIES:
-   :HTML_CONTAINER_CLASS: slide
-   :END:
-
-#+BEGIN_SRC sh
-grunt server
-#+END_SRC
 
 * Chrome App Compression (s5)
 
@@ -215,6 +198,10 @@ fixjsstyle Gruntfile.js app
     "indent": 2,
 #+END_EXAMPLE
 
+#+BEGIN_SRC sh
+grunt server
+#+END_SRC
+
 * Angular Project (Buzz) (s10)
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: slide
@@ -231,6 +218,7 @@ fixjsstyle Gruntfile.js app
 mkdir -p buzzAngular && cd $_
 yo
 npm install
+grunt serve
 #+END_SRC
 
 ** Layout
@@ -241,29 +229,18 @@ npm install
 #+BEGIN_EXAMPLE
 |-- Gruntfile.js
 |-- app
-|   |-- 404.html
-|   |-- favicon.ico
 |   |-- index.html
-|   |-- robots.txt
 |   |-- scripts
 |   |-- styles
 |   `-- views
 |-- bower.json
-|-- karma-e2e.conf.js
-|-- karma.conf.js
 |-- package.json
 `-- test
     |-- runner.html
     `-- spec
 #+END_EXAMPLE
 
-* Angular Build
-
-#+BEGIN_SRC sh
-grunt serve
-#+END_SRC
-
-** Manifest
+* Angular Chrome Manifest
 
 https://npmjs.org/package/grunt-chrome-manifest
 
@@ -333,8 +310,7 @@ chromeManifest: {
 
 Other task-oriented build tools: 
 
-- rails 
-- lein 
+- rails, lein 
 
 file:gdg_2013-11-18_yo_grunt_bower/eg-yo.png
 
@@ -373,11 +349,7 @@ npm update -g generator-chromeapp
 
   http://gruntjs.com/
 
-- make 
-- ant 
-- rake 
-- gradle 
-- lein
+- make, ant, rake, gradle, lein
 
 file:gdg_2013-11-18_yo_grunt_bower/eg-grunt.png
 
@@ -470,9 +442,7 @@ PACKT PUBLISHING. Kindle Edition.
 
   http://bower.io/
 
-- ivy 
-- maven 
-- pip 
+- ivy, maven, pip 
 
 file:gdg_2013-11-18_yo_grunt_bower/eg-bower.png
 

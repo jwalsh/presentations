@@ -215,10 +215,6 @@ for the JavaScript code in this tag.
 </li>
 <li>Why do the tools exist 
 </li>
-<li>What do they do 
-</li>
-<li>When would you want to use 
-</li>
 <li>Q&amp;A
 </li>
 </ul>
@@ -233,18 +229,13 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<ul class="org-ul">
-<li>Chrome packaged application that uses the Google Drive API  <a href="http://developer.chrome.com/apps/angular_framework.html">http://developer.chrome.com/apps/angular_framework.html</a>
-</li>
-<li>Angular application from boilerplate that creates manifest.json 
-</li>
-<li>chrome://flags/  &gt; Experimental Extension APIs
-</li>
-<li>chrome://apps/
-</li>
-</ul>
+<p>
+We'll look at a Chrome packaged application that uses the Google Drive
+API and an Angular application from boilerplate that creates manifest.json 
+</p>
 </div>
 </div>
+
 <div id="outline-container-sec-3" class="outline-2  slide">
 <h2 id="sec-3">Setup</h2>
 <div class="outline-text-2" id="text-3">
@@ -269,16 +260,14 @@ Find the following applications: <i>generator-chromeapp</i> and <i>generator-ang
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2 slide">
+<div id="outline-container-sec-4" class="outline-2  slide">
 <h2 id="sec-4">Chrome App Project (Drive Chrome) (s0)</h2>
 <div class="outline-text-2" id="text-4">
-
 </div>
 
-<div id="outline-container-sec-4-1" class="outline-3 slide">
+<div id="outline-container-sec-4-1" class="outline-3">
 <h3 id="sec-4-1">Setup</h3>
 <div class="outline-text-3" id="text-4-1">
-
 <div class="org-src-container">
 
 <pre class="src src-sh">mkdir -p driveChrome &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">cd</span> $<span style="color: #DFAF8F;">_</span>
@@ -424,18 +413,8 @@ Running "concurrent:test" (concurrent) task
 </div>
 </div>
 </div>
-<div id="outline-container-sec-8-3" class="outline-3 slide">
-<h3 id="sec-8-3">Generation</h3>
-<div class="outline-text-3" id="text-8-3">
+</div>
 
-<div class="org-src-container">
-
-<pre class="src src-sh">grunt server
-</pre>
-</div>
-</div>
-</div>
-</div>
 <div id="outline-container-sec-9" class="outline-2  slide">
 <h2 id="sec-9">Chrome App Compression (s5)</h2>
 <div class="outline-text-2" id="text-9">
@@ -485,6 +464,12 @@ Running "concurrent:test" (concurrent) task
 <pre class="example">
 "indent": 2,
 </pre>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">grunt server
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-sec-11" class="outline-2 slide">
@@ -502,6 +487,7 @@ Running "concurrent:test" (concurrent) task
 <pre class="src src-sh">mkdir -p buzzAngular &amp;&amp; <span style="color: #DCDCCC; font-weight: bold;">cd</span> $<span style="color: #DFAF8F;">_</span>
 yo
 npm install
+grunt serve
 </pre>
 </div>
 </div>
@@ -513,16 +499,11 @@ npm install
 <pre class="example">
 |-- Gruntfile.js
 |-- app
-|   |-- 404.html
-|   |-- favicon.ico
 |   |-- index.html
-|   |-- robots.txt
 |   |-- scripts
 |   |-- styles
 |   `-- views
 |-- bower.json
-|-- karma-e2e.conf.js
-|-- karma.conf.js
 |-- package.json
 `-- test
     |-- runner.html
@@ -532,18 +513,8 @@ npm install
 </div>
 </div>
 <div id="outline-container-sec-12" class="outline-2  slide">
-<h2 id="sec-12">Angular Build</h2>
+<h2 id="sec-12">Angular Chrome Manifest</h2>
 <div class="outline-text-2" id="text-12">
-<div class="org-src-container">
-
-<pre class="src src-sh">grunt serve
-</pre>
-</div>
-</div>
-
-<div id="outline-container-sec-12-1" class="outline-3">
-<h3 id="sec-12-1">Manifest</h3>
-<div class="outline-text-3" id="text-12-1">
 <p>
 <a href="https://npmjs.org/package/grunt-chrome-manifest">https://npmjs.org/package/grunt-chrome-manifest</a>
 </p>
@@ -579,7 +550,6 @@ grunt.registerTask(<span style="color: #CC9393;">'default'</span>, [<span style=
   }
 }
 </pre>
-</div>
 </div>
 </div>
 </div>
@@ -633,9 +603,7 @@ Other task-oriented build tools:
 </p>
 
 <ul class="org-ul">
-<li>rails 
-</li>
-<li>lein 
+<li>rails, lein 
 </li>
 </ul>
 
@@ -695,15 +663,7 @@ npm search yeoman-generator angular
 </p>
 
 <ul class="org-ul">
-<li>make 
-</li>
-<li>ant 
-</li>
-<li>rake 
-</li>
-<li>gradle 
-</li>
-<li>lein
+<li>make, ant, rake, gradle, lein
 </li>
 </ul>
 
@@ -833,11 +793,7 @@ PACKT PUBLISHING. Kindle Edition.
 </p>
 
 <ul class="org-ul">
-<li>ivy 
-</li>
-<li>maven 
-</li>
-<li>pip 
+<li>ivy, maven, pip 
 </li>
 </ul>
 
